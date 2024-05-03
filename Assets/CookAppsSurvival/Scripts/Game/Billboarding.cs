@@ -8,15 +8,16 @@ namespace CookApps.Game
     {
         Transform cam;
 
+        Quaternion offset = Quaternion.Euler(-1, 180, 0);
+
         void Start()
         {
             cam = Camera.main.transform;
-            transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
         }
 
         void Update()
         {
-            
+            transform.rotation = Quaternion.LookRotation(cam.position - transform.position) * offset;
         }
     }
 }
