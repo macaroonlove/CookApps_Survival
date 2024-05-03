@@ -34,6 +34,17 @@ MonoBehaviour:
     - 51b220fb91d831144b454dd79b612bbb
     - 2b8cb6fae595a4fdbab32cb85e237860
     - aa8857f422c884a4384d442893bd75e7
+    - 60d8bd71263bdf146b5e3fcda659115f
+    - 479c91b0658030c4ea2d9ece749ef579
+    - cd89405304781694ba46341a3466bb26
+    - 832d86051ea07874e9c94e0eb7a8a591
+    - 5a11146b76ea12d4895486b0809a1e0d
+    - 4ed84624b24e14748b1b99d6fcfc738a
+    - 9af0890d235976043a218042e2756375
+    - 37865561a6dd944409181e83e859ca06
+    - 446b3d35fcb849f4aadc099f8297d518
+    - ad63d457092504e4894c3665571094c2
+    - a9733ddc36b9a8549a6319ba33ddb873
     values:
     - colorIndex: 7
       iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
@@ -74,4 +85,26 @@ MonoBehaviour:
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 0
+      iconNameOrGuid: Settings Icon
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
       iconNameOrGuid: 

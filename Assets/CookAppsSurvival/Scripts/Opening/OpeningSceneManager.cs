@@ -4,25 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class OpeningSceneManager : MonoBehaviour
+namespace CookApps.Opening
 {
-    [SerializeField] Button button_InGame;
-    [SerializeField] Button button_Setting;
-
-    private void Awake()
+    public class OpeningSceneManager : MonoBehaviour
     {
-        button_InGame.onClick.AddListener(OnClick_InGame);
-        button_Setting.onClick.AddListener(OnClick_Setting);
-    }
+        [SerializeField] Button button_InGame;
+        [SerializeField] Button button_Setting;
 
-    private void OnClick_InGame()
-    {
-        //SceneLoadingManager.LoadScene("Lobby", true);
-        SceneManager.LoadScene("Lobby");
-    }
-    
-    private void OnClick_Setting()
-    {
+        private void Awake()
+        {
+            button_InGame.onClick.AddListener(OnClick_InGame);
+            button_Setting.onClick.AddListener(OnClick_Setting);
+        }
 
+        private void OnClick_InGame()
+        {
+            //SceneLoadingManager.LoadScene("Lobby", true);
+            SceneManager.LoadScene("Lobby");
+        }
+
+        private void OnClick_Setting()
+        {
+
+        }
     }
 }
