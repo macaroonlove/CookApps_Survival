@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb9c12a8c6c949f7af83a3d238359d0, type: 3}
+  m_Name: vFolders Data
+  m_EditorClassIdentifier: 
+  folderDatas_byGuid:
+    keys:
+    - 613498ebf1047834fa3a8142a3ef0f1a
+    - 8a10ab49580472a4e87e50ca74363fe0
+    - a61589835f047564b8428c58cb0ff26a
+    - 1c0c368547c4ae1458e5d1460d2ec9d6
+    - b47e5fc2a686d904485874f2b3a64f5e
+    - dc265077766e81a4eb3504a5037b1c53
+    - 5ccca528bb2772b4a9c8ce1c5ec13197
+    - 27961d5fed694ba40812f84002375b85
+    - c00e2f8ccc9adf64a96a3ef115bef634
+    - 5be41a408fdcba946917c4428023d7e5
+    - 42788d6b641cf1b46917a422cc52e565
+    - ce04d02672516fc4992cf1efb81d44be
+    - 8ee7e55ceb4e23841bf2d1142a1e8922
+    - 109ccfb08b9fd4bf5a9d8deee2ace2ed
+    - 329086a42c50a4d3c98d6f8b91dfd3e7
+    - 0e0162ac614514845a377dee6a21ab99
+    - 8bd8fa44eeb414966bbba16fd4efb869
+    - 51b220fb91d831144b454dd79b612bbb
+    - 2b8cb6fae595a4fdbab32cb85e237860
+    - aa8857f422c884a4384d442893bd75e7
+    values:
+    - colorIndex: 7
+      iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
+    - colorIndex: 4
+      iconNameOrGuid: 
+    - colorIndex: 6
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 2
+      iconNameOrGuid: 
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 10
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: ComputeShader Icon
+    - colorIndex: 2
+      iconNameOrGuid: 
+    - colorIndex: 2
+      iconNameOrGuid: Texture Icon
+    - colorIndex: 2
+      iconNameOrGuid: Texture Icon
+    - colorIndex: 6
+      iconNameOrGuid: Font Icon
+    - colorIndex: 2
+      iconNameOrGuid: 
+    - colorIndex: 2
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
