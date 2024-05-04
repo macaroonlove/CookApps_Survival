@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CookApps.Game
 {
@@ -11,13 +12,16 @@ namespace CookApps.Game
     /// </summary>
     public class PartySystem : MonoBehaviour, ISubSystem
     {
-        private List<Transform> _pos = new List<Transform>();
+        private List<PartyUnit> _partyUnits = new List<PartyUnit>();
 
-        internal Transform pos 
+        internal UnityAction<PartyUnit> onUnitRevival;
+        internal UnityAction<PartyUnit> onUnitDie;
+    
+        internal PartyUnit mainUnit
         {
             get
             {
-                foreach(var p in _pos)
+                foreach(var p in _partyUnits)
                 {
                     if (p.gameObject.activeSelf)
                     {
@@ -25,14 +29,18 @@ namespace CookApps.Game
                     }
                 }
 
-                // 게임 종료 이벤트 보내주기?(Action)
                 return null;
             }
         }
 
         public void Initialize()
         {
-            _pos = transform.GetChild(0).GetComponents<Transform>().ToList();
+            _partyUnits = transform.GetChild(0).GetComponentsInChildren<PartyUnit>().ToList();
+
+            foreach (var unit in _partyUnits)
+            {
+                unit.Initialize();
+            }
         }
 
         public void Deinitialize()

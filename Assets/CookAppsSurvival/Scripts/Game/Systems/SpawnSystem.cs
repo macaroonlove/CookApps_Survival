@@ -65,7 +65,7 @@ namespace CookApps.Game
 
                 for (int i = 0; i < spawnCnt; i++)
                 {
-                    SpawnEnemy(_partySystem.pos.position);
+                    SpawnEnemy(_partySystem.mainUnit.transform.position);
                 }
 
                 yield return waitForSeconds;

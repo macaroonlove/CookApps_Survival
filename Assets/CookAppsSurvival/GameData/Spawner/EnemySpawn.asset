@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9649c0c7bb2e5e64fa8d42b355a6e2b5, type: 3}
   m_Name: EnemySpawn
   m_EditorClassIdentifier: 
-  cycleTime: 5
-  simultaneousMaxCnt: 5
+  spawnTime: 5
+  simultaneousMaxCnt: 1
   spawnRadius: 50
   poolSize: 10

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CookApps.Game
 {
     /// <summary>
-    /// ¿˚ ¿Ø¥÷ ≈€«√∏¥
+    /// æ∆±∫ ¿Ø¥÷ ≈€«√∏¥
     /// </summary>
     [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/Agent", fileName = "Agent", order = 0)]
     public class AgentTemplate : ScriptableObject

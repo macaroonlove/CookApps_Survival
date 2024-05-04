@@ -7,23 +7,24 @@ namespace CookApps.Game
     /// <summary>
     /// Àû À¯´Ö
     /// </summary>
-    [RequireComponent(typeof(NavMeshDynamicAgent))]
+    [RequireComponent(typeof(EnemyAttackAbility))]
     public class EnemyUnit : Unit
     {
-        private NavMeshDynamicAgent _agent;
+        [SerializeField] private EnemyTemplate _template;
 
-        public NavMeshDynamicAgent agent => _agent;
+        protected EnemyAttackAbility _enemyAttackAbility;
 
-        protected override void Awake()
+        public EnemyAttackAbility enemyAttackAbility => _enemyAttackAbility;
+
+        internal EnemyTemplate template => _template;
+
+        public override void Initialize()
         {
-            base.Awake();
+            base.Initialize();
 
-            TryGetComponent(out _agent);
-        }
+            TryGetComponent(out _enemyAttackAbility);
 
-        public void Initialize()
-        {
-            _agent.Initialize(this);
+            _enemyAttackAbility.Initialize(this);
         }
     }
 }

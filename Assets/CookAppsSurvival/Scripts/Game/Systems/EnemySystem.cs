@@ -35,5 +35,31 @@ namespace CookApps.Game
         {
             _enemies.Remove(instance);
         }
+
+        /// <summary>
+        /// 메인 유닛으로부터 가장 가까운 적을 반환
+        /// </summary>
+        /// <returns></returns>
+        internal EnemyUnit GetNearestEnemy(Vector3 mainUnitPos)
+        {
+            EnemyUnit nearestEnemy = null;
+            float nearestDistanceSqr = Mathf.Infinity;
+
+            foreach (EnemyUnit enemy in _enemies)
+            {
+                if (enemy != null && enemy.isActiveAndEnabled)
+                {
+                    float distanceSqr = (enemy.transform.position - mainUnitPos).sqrMagnitude;
+                    if (distanceSqr < nearestDistanceSqr)
+                    {
+                        nearestEnemy = enemy;
+                        nearestDistanceSqr = distanceSqr;
+                    }
+                }
+            }
+
+            return nearestEnemy;
+        }
+
     }
 }

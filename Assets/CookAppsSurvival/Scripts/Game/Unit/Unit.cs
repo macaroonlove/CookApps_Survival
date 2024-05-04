@@ -11,21 +11,25 @@ namespace CookApps.Game
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(Billboarding))]
     [RequireComponent(typeof(UnitAnimationController))]
+    [RequireComponent(typeof(MoveAbility))]
     public class Unit : MonoBehaviour
     {
         protected UnitAnimationController _animationController;
+        protected MoveAbility _moveAbility;
+
+        // healthAbility의 HP를 기준으로 판단하도록 수정
+        internal bool isDie;
 
         public UnitAnimationController animationController => _animationController;
+        public MoveAbility moveAbility => _moveAbility;
 
-        protected virtual void Awake()
+        public virtual void Initialize()
         {
             TryGetComponent(out _animationController);
-            
-        }
+            TryGetComponent(out _moveAbility);
 
-        void Start()
-        {
-            
+            _animationController.Initialze(this);
+            _moveAbility.Initialize(this);
         }
     }
 }

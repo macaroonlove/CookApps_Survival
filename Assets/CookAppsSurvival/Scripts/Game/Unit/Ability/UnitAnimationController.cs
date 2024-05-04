@@ -9,16 +9,40 @@ namespace CookApps.Game
     /// </summary>
     public class UnitAnimationController : MonoBehaviour
     {
+        private Unit _unit;
         private Animator _animator;
+
+        int hash_Move;
+        int hash_Attack;
 
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
+
+            hash_Move = Animator.StringToHash("move");
+            hash_Attack = Animator.StringToHash("attack");
         }
 
-        public void Move(bool isMove)
+        internal void Initialze(Unit unit)
         {
-            _animator.SetBool("move", isMove);
+            _unit = unit;
+        }
+
+        public void Attack()
+        {
+            _animator.SetTrigger(hash_Attack);
+        }
+
+        private void Update()
+        {
+            if (_unit.moveAbility.isMove)
+            {
+                _animator.SetBool(hash_Move, true);
+            }
+            else
+            {
+                _animator.SetBool(hash_Move, false);
+            }
         }
     }
 }

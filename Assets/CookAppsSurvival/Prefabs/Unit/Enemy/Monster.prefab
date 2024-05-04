@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 2470272392714580074}
   - component: {fileID: 4462012192184137963}
   - component: {fileID: 3989386295742382521}
+  - component: {fileID: 8239847939245689866}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 7988545859562375077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5158762939998574864}
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c885cca8a032ac44d847843a1fb3dea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _template: {fileID: 11400000, guid: d13cb9f6d78389d4b9fbebe6759feb28, type: 2}
 --- !u!114 &8284637060169282657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64bcef76d4b40347b3cc47382a6cfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _targetPos: {fileID: 0}
+  _isReverse: 0
 --- !u!114 &3989386295742382521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,5 +216,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6075c1d0821d1842a0356d12aa8508e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8239847939245689866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988545859562375077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee454df170823a04c88a2af5fba5249f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
