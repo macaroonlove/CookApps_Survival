@@ -28,33 +28,63 @@ namespace CookApps.Game
             }
         }
 
+        /// <summary>
+        /// 최종 공격거리
+        /// </summary>
+        protected override float finalAttackDistance
+        {
+            get
+            {
+                float final = _pureAttackDistance;
+
+                //일부 보정
+                final -= 0.1f;
+
+                final = Mathf.Max(final, 0);
+
+                return final;
+            }
+        }
+
         internal void Initialize(EnemyUnit enemyUnit)
         {
             this._enemyUnit = enemyUnit;
 
-            _pureAttackTerm = enemyUnit.template.attackTerm;
-            _pureAttackDistance = enemyUnit.template.attackRange;
+            _pureATK = enemyUnit.pureATK;
+            _pureAttackTerm = enemyUnit.pureAttackTerm;
+            _pureAttackDistance = enemyUnit.pureAttackRange;
             _cooldownTime = finalAttackTerm;
+            _isAttackAble = true;
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
+        }
+
+        internal void DeInitialize()
+        {
+            _isAttackAble = false;
         }
 
         protected override bool Action()
         {
             if (_enemyUnit.moveAbility.isMove) return false;
 
-            var attackTarget = _partySystem.mainUnit.moveAbility.target;
+            var attackTarget = _enemyUnit.moveAbility.target;
 
-            Attack(attackTarget);
+            if (attackTarget != null)
+            {
+                Attack(attackTarget);
+            }
 
             return true;
         }
 
         private void Attack(Unit attackTarget)
         {
-            //Debug.Log("실행");
             // 공격 모션
             _enemyUnit.animationController.Attack();
+
+            // 유닛한테 데미지 주기
+            attackTarget.healthAbility.Damaged(_pureATK);
         }
     }
 }

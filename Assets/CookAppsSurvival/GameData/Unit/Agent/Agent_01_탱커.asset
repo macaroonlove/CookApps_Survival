@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   displayName: "\uD0F1\uCEE4"
   job: 0
-  maxHp: 400
+  maxHp: 50
   ATK: 5
   attackTerm: 1.5
   attackRange: 1

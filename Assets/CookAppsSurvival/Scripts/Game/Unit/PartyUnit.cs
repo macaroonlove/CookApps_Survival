@@ -12,19 +12,48 @@ namespace CookApps.Game
     {
         [SerializeField] private AgentTemplate _template;
 
+        private PartySystem _partySystem;
+
         protected AgentAttackAbility _agentAttackAbility;
 
         public AgentAttackAbility agentAttackAbility => _agentAttackAbility;
 
-        internal AgentTemplate template => _template;
+        public override int pureATK => _template.ATK;
+
+        public override int pureMaxHp => _template.maxHp;
+
+        public override float pureAttackTerm => _template.attackTerm;
+
+        public override float pureAttackRange => _template.attackRange;
+
+        public EJob job => _template.job;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            TryGetComponent(out _agentAttackAbility);
+            if (_agentAttackAbility == null)
+            {
+                TryGetComponent(out _agentAttackAbility);
+            }
 
             _agentAttackAbility.Initialize(this);
+
+            _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
+        }
+
+        protected override void OnDeath()
+        {
+            base.OnDeath();
+
+            _partySystem.UnitDieRevival(this);
+        }
+
+        public override void DeInitialize()
+        {
+            base.DeInitialize();
+
+            _agentAttackAbility.DeInitialize();
         }
     }
 }

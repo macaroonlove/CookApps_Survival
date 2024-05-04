@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FrameWork.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,26 +15,29 @@ namespace CookApps.Game
         [SerializeField] private Transform _targetPos;
         [SerializeField] private bool _isReverse;
 
+        [SerializeField, ReadOnly] private bool _isMove;
+        [SerializeField, ReadOnly] private bool _isMainUnit;
+        [SerializeField, ReadOnly] private Unit _target;
+
         private Unit _unit;
         private NavMeshAgent _agent;
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
 
-        private bool _isMove;
-        private Unit _target;
 
         public bool isMove => _isMove;
 
         public Unit target => _target;
         public Transform targetPos => _targetPos;
 
-        public void Initialize(Unit unit)
+        internal void Initialize(Unit unit)
         {
             _unit = unit;
 
             if (TryGetComponent(out _agent))
             {
                 _agent.enabled = true;
+                _agent.stoppingDistance = unit.pureAttackRange;
             }
             else
             {
@@ -51,16 +55,23 @@ namespace CookApps.Game
             NewTarget(_partySystem.mainUnit);
         }
 
+        internal void DeInitialize()
+        {
+
+        }
+
         void NewTarget(PartyUnit mainUnit)
         {
             if (_unit != mainUnit)
             {
                 _targetPos = mainUnit.transform;
-                _target = null;
+                _target = mainUnit;
+                _isMainUnit = false;
             }
             else
             {
                 _targetPos = null;
+                _isMainUnit = true;
             }
         }
 
@@ -68,29 +79,26 @@ namespace CookApps.Game
         {
             _targetPos = target.transform;
 
-            PartyUnit partyUnit = (_unit as PartyUnit);
-            if (partyUnit != null)
-            {
-                switch (partyUnit.template.job)
-                {
-                    case EJob.Archer:
-                    case EJob.Priest:
-                        _agent.stoppingDistance = 6;
-                        break;
-                }
-            }
+           
         }
 
         void Update()
         {
-            if (_unit.isDie) return;
+            //if (_unit.healthA) return;
 
             // 타겟이 없을 경우
-            if (_targetPos == null)
+            if (_targetPos == null || !_targetPos.gameObject.activeSelf)
             {
-                // 자신을 기준으로 가장 가까운 적을 찾기
-                _target = _enemySystem.GetNearestEnemy(_unit.transform.position);
-                _targetPos = _target.transform;
+                if (_isMainUnit)
+                {
+                    // 자신을 기준으로 가장 가까운 적을 찾기
+                    _target = _enemySystem.GetNearestEnemy(_unit.transform.position);
+                    _targetPos = _target.transform;
+                }
+                else
+                {
+                    _targetPos = _target.transform;
+                }
             }
 
             // 이동

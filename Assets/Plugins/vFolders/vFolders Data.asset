@@ -67,6 +67,14 @@ MonoBehaviour:
     - 090c29c98c1a3f7439555e55bc29386a
     - aaa1fae5d2f02d64c9f4598bf5b2f4ba
     - ff62f79b643c01f4da67e4c0bda6e378
+    - bec57fa747006824193df34a6c2c3f57
+    - 0d8f8235dbc8a2e449986031e87561d8
+    - bcc164d6d8bd8a34ba91a997a0f0589c
+    - a63c03a5b8d75c340a7dfdcb2631ffcc
+    - 21ed66fffcf12454abb7f91a80cbadad
+    - e4bced337b74cf943b45fb7ba1e6f5a9
+    - e108ba9878f90f64ebc13b80cda70ca3
+    - bb7227b5a6a1d7e41ae409d82884dfda
     values:
     - colorIndex: 7
       iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
@@ -153,7 +161,7 @@ MonoBehaviour:
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 7
-      iconNameOrGuid: 
+      iconNameOrGuid: cs Script Icon
     - colorIndex: 8
       iconNameOrGuid: ScriptableObject Icon
     - colorIndex: 7
@@ -174,3 +182,19 @@ MonoBehaviour:
       iconNameOrGuid: 
     - colorIndex: 1
       iconNameOrGuid: 
+    - colorIndex: 2
+      iconNameOrGuid: 
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: cs Script Icon
+    - colorIndex: 6
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 6
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 6
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 6
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 6
+      iconNameOrGuid: AnimationClip Icon

@@ -27,12 +27,9 @@ namespace CookApps.Game
 
         void NewTarget(PartyUnit mainUnit)
         {
-            if (_vCam.Follow == null)
-            {
-                var pos = mainUnit.transform;
-                _vCam.Follow = pos;
-                _vCam.LookAt = pos;
-            }
+            var pos = mainUnit.transform;
+            _vCam.Follow = pos;
+            _vCam.LookAt = pos;
         }
 
         void OnDestroy()

@@ -75,6 +75,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1962805078865819121, guid: 36bddbb01219b91438d91f10ed6e5cb0,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2788141932363522448, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}
       propertyPath: _template
@@ -89,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 6718203306160753679, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6718203306160753679, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}

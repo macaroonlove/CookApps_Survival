@@ -16,15 +16,43 @@ namespace CookApps.Game
 
         public EnemyAttackAbility enemyAttackAbility => _enemyAttackAbility;
 
-        internal EnemyTemplate template => _template;
+        public override int pureATK => _template.ATK;
+
+        public override int pureMaxHp => _template.maxHp;
+
+        public override float pureAttackTerm => _template.attackTerm;
+
+        public override float pureAttackRange => _template.attackRange;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            TryGetComponent(out _enemyAttackAbility);
+            if (_enemyAttackAbility == null)
+            {
+                TryGetComponent(out _enemyAttackAbility);
+            }
 
             _enemyAttackAbility.Initialize(this);
+        }
+
+        protected override void OnDeath()
+        {
+            base.OnDeath();
+
+            Invoke(nameof(Despawn), 1f);
+        }
+
+        private void Despawn()
+        {
+            BattleManager.Instance.GetSubSystem<SpawnSystem>().DespawnEnemy(this);
+        }
+
+        public override void DeInitialize()
+        {
+            base.DeInitialize();
+
+            _enemyAttackAbility.DeInitialize();
         }
     }
 }

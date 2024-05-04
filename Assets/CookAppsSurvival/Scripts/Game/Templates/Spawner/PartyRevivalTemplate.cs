@@ -13,5 +13,9 @@ namespace CookApps.Game
         [Header("부활 시간")]
         [Range(0.0f, 100.0f)]
         public float respawnTime = 5;
+        
+        [Header("사망 애니메이션 대기 시간")]
+        [Range(0.0f, 100.0f)]
+        public float deathAnimTime = 1;
     }
 }

@@ -14,6 +14,8 @@ namespace CookApps.Game
 
         int hash_Move;
         int hash_Attack;
+        int hash_Hit;
+        int hash_Death;
 
         private void Awake()
         {
@@ -21,16 +23,35 @@ namespace CookApps.Game
 
             hash_Move = Animator.StringToHash("move");
             hash_Attack = Animator.StringToHash("attack");
+            hash_Hit = Animator.StringToHash("hit");
+            hash_Death = Animator.StringToHash("death");
         }
 
         internal void Initialze(Unit unit)
         {
             _unit = unit;
+
+            _unit.healthAbility.onChangedHealth += Hit;
         }
 
-        public void Attack()
+        internal void DeInitialize()
+        {
+            _unit.healthAbility.onChangedHealth -= Hit;
+        }
+
+        internal void Attack()
         {
             _animator.SetTrigger(hash_Attack);
+        }
+
+        internal void Hit(int a)
+        {
+            _animator.SetTrigger(hash_Hit);
+        }
+
+        internal void Death()
+        {
+            _animator.SetTrigger(hash_Death);
         }
 
         private void Update()
