@@ -75,6 +75,7 @@ MonoBehaviour:
     - e4bced337b74cf943b45fb7ba1e6f5a9
     - e108ba9878f90f64ebc13b80cda70ca3
     - bb7227b5a6a1d7e41ae409d82884dfda
+    - 316b98a4265641d4392cf0f041250ad4
     values:
     - colorIndex: 7
       iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
@@ -198,3 +199,5 @@ MonoBehaviour:
       iconNameOrGuid: AnimationClip Icon
     - colorIndex: 6
       iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 9
+      iconNameOrGuid: 
