@@ -1,6 +1,7 @@
 using FrameWork.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CookApps.Game
@@ -10,13 +11,28 @@ namespace CookApps.Game
     /// </summary>
     public class PartySystem : MonoBehaviour, ISubSystem
     {
-        private Transform _pos;
+        private List<Transform> _pos = new List<Transform>();
 
-        internal Transform pos => _pos;
+        internal Transform pos 
+        {
+            get
+            {
+                foreach(var p in _pos)
+                {
+                    if (p.gameObject.activeSelf)
+                    {
+                        return p;
+                    }
+                }
+
+                // 게임 종료 이벤트 보내주기?(Action)
+                return null;
+            }
+        }
 
         public void Initialize()
         {
-            _pos = transform.GetChild(0).GetChild(0);
+            _pos = transform.GetChild(0).GetComponents<Transform>().ToList();
         }
 
         public void Deinitialize()

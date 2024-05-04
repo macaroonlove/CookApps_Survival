@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace CookApps.Game
 {
     /// <summary>
-    /// 파티원 및 적 유닛이 파티의 리더(탱커)를 쫓아가도록 하는 클래스
+    /// 파티원 및 적 유닛이 파티의 리더를 쫓아가도록 하는 클래스
     /// </summary>
     public class NavMeshDynamicAgent : MonoBehaviour
     {
@@ -33,7 +33,7 @@ namespace CookApps.Game
 
             if (_target == null)
             {
-                // AgentSystem에 메인 유닛 들고오기
+                _target = BattleManager.Instance.GetSubSystem<PartySystem>().pos;
             }
         }
 

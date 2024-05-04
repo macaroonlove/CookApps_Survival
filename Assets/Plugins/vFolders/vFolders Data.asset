@@ -57,6 +57,14 @@ MonoBehaviour:
     - 76905742485f11b4bac0280ac867ebf5
     - a39d0d89691033e4fb9c3ab4261905e2
     - b47da6107321be541826b15cd731d6ed
+    - 9075553aedc1da145bc83f18537a530d
+    - bbd3189491eeeb64688e0268ebcc550a
+    - 0928cea874f9afa4e90183be01f5e066
+    - 3057fa08d4955584388b3508fa3a7c08
+    - 709f11a7f3c4041caa4ef136ea32d874
+    - c7a99db61d0bb7244adc47e02d6418f4
+    - 0b9276ba4f40b1747abfba028e3f5781
+    - 090c29c98c1a3f7439555e55bc29386a
     values:
     - colorIndex: 7
       iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
@@ -101,7 +109,7 @@ MonoBehaviour:
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 0
-      iconNameOrGuid: Settings Icon
+      iconNameOrGuid: Cubemap Icon
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 8
@@ -131,7 +139,7 @@ MonoBehaviour:
     - colorIndex: 2
       iconNameOrGuid: 
     - colorIndex: 8
-      iconNameOrGuid: 92022d3dc15274e4ab747e732c90085a
+      iconNameOrGuid: 
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 5
@@ -143,4 +151,20 @@ MonoBehaviour:
     - colorIndex: 7
       iconNameOrGuid: 
     - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 8
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 7
+      iconNameOrGuid: 
+    - colorIndex: 0
+      iconNameOrGuid: Settings Icon
+    - colorIndex: 8
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 8
       iconNameOrGuid: 

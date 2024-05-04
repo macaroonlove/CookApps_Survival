@@ -27,7 +27,7 @@ namespace CookApps.Game
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
 
-            waitForSeconds = new WaitForSeconds(template.cycleTime);
+            waitForSeconds = new WaitForSeconds(template.spawnTime);
             _simultaneousMaxCnt = template.simultaneousMaxCnt;
             _spawnRadius = template.spawnRadius;
             _size = template.poolSize;

@@ -12,7 +12,7 @@ namespace CookApps.Game
     {
         [Header("생성 주기")]
         [Range(0.0f, 100.0f)]
-        public float cycleTime = 5;
+        public float spawnTime = 5;
         
         [Header("동시 생성 가능한 최대 수")]
         [Range(1, 100)]

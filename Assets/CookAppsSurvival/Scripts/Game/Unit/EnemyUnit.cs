@@ -21,19 +21,9 @@ namespace CookApps.Game
             TryGetComponent(out _agent);
         }
 
-        void Start()
-        {
-            _agent.Initialize(this);
-        }
-
         public void Initialize()
         {
-            
-        }
-
-        void OnDisable()
-        {
-            _agent.enabled = false;
+            _agent.Initialize(this);
         }
     }
 }
