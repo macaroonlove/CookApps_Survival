@@ -1,7 +1,6 @@
 using FrameWork.Editor;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,40 +14,37 @@ namespace CookApps.Game
         [SerializeField] private PartySettingTemplate template;
         [SerializeField] private UI_PartyMemberSlotCanvas ui_PartyMemberSlot;
 
-        private List<PartyUnit> _partyUnits = new List<PartyUnit>();
+        private Stack<PartyUnit> _partyUnits = new Stack<PartyUnit>();
 
         private WaitForSeconds deathAnimWaitForSeconds;
         private WaitForSeconds respawnWaitForSeconds;
 
         internal UnityAction<PartyUnit> onUnitRevival;
         internal UnityAction<PartyUnit> onUnitDie;
+        internal UnityAction onGameEnd;
     
         internal PartyUnit mainUnit
         {
             get
             {
-                foreach(var p in _partyUnits)
+                if (_partyUnits.Count > 0)
                 {
-                    if (p.gameObject.activeSelf)
-                    {
-                        return p;
-                    }
+                    return _partyUnits.Peek();
                 }
-
                 return null;
             }
         }
 
         public void Initialize()
         {
-            for(int i = 0; i < template.partyMembers.Count; i++)
+            for(int i = template.partyMembers.Count - 1; i >= 0; i--)
             {
                 var member = template.partyMembers[i];
 
                 var unit = Instantiate(member.prefab, transform.GetChild(0).position + Vector3.right * i, Quaternion.identity, transform.GetChild(0));
                 var partyUnit = unit.GetComponent<PartyUnit>();
                 partyUnit.Initialize(member);
-                _partyUnits.Add(partyUnit);
+                _partyUnits.Push(partyUnit);
             }
 
             ui_PartyMemberSlot.Initialize(template.partyMembers);
@@ -77,35 +73,41 @@ namespace CookApps.Game
 
         internal void UnitDieRevival(PartyUnit unit)
         {
+            _partyUnits.Pop();
+            if (_partyUnits.Count <= 0)
+            {
+                // 게임 종료
+                onGameEnd?.Invoke();
+            }
+
             StartCoroutine(CoUnitDieRevival(unit));
         }
 
         private IEnumerator CoUnitDieRevival(PartyUnit unit)
         {
-            yield return deathAnimWaitForSeconds;
-            unit.gameObject.SetActive(false);
             onUnitDie?.Invoke(mainUnit);
 
+            yield return deathAnimWaitForSeconds;
+            unit.gameObject.SetActive(false);
+
             yield return respawnWaitForSeconds;
-            unit.transform.position = GetCenterPosition(unit);
+            unit.transform.position = GetCenterPosition();
             unit.gameObject.SetActive(true);
             unit.Initialize();
+            _partyUnits.Push(unit);
             onUnitRevival?.Invoke(mainUnit);
         }
 
-        private Vector3 GetCenterPosition(PartyUnit unit)
+        private Vector3 GetCenterPosition()
         {
             Vector3 sumPosition = Vector3.zero;
 
             foreach (PartyUnit partyUnit in _partyUnits)
             {
-                if (partyUnit != unit)
-                {
-                    sumPosition += partyUnit.transform.position;
-                }
+                sumPosition += partyUnit.transform.position;
             }
 
-            Vector3 centerPosition = sumPosition / (_partyUnits.Count - 1);
+            Vector3 centerPosition = sumPosition / _partyUnits.Count;
 
             return centerPosition;
         }
