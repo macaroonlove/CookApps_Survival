@@ -78,7 +78,7 @@ PrefabInstance:
     - target: {fileID: 1962805078865819121, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}
       propertyPath: avoidancePriority
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1962805078865819121, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}

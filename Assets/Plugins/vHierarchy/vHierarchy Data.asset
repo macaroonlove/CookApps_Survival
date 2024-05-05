@@ -13,5 +13,56 @@ MonoBehaviour:
   m_Name: vHierarchy Data
   m_EditorClassIdentifier: 
   sceneDatasByGuid:
-    keys: []
-    values: []
+    keys:
+    - a9bb8a4ff7fb342449ba61a05588fe7f
+    - 
+    - fa14bf0c0f3f4b8d8c9d9238f6d21dba
+    values:
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1777357454-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1933340317-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-329131578-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-400143111-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-759762130-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-699339632-0
+        values:
+        - iColor: 6
+          icon: 
+        - iColor: 4
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+      goDatasByInstanceId:
+        keys: 44d202004ed20200e4d10200f4d102001cd2020014d20200
+        values:
+        - iColor: 6
+          icon: 
+        - iColor: 4
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []

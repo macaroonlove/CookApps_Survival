@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 099afa68201028b498cee4249160c9b8, type: 3}
-  m_Name: "Enemy_010_\uACE0\uBE14\uB9B0"
+  m_Name: "Enemy_030_\uB3C5\uBC84\uC12F"
   m_EditorClassIdentifier: 
-  id: 10
-  displayName: "\uACE0\uBE14\uB9B0"
+  id: 30
+  displayName: "\uB3C5\uBC84\uC12F"
   enemyType: 0
   prefab: {fileID: 7988545859562375077, guid: 23b0558f8d2fc7440a182c81ecd38d3c, type: 3}
   maxHp: 100
