@@ -6,7 +6,7 @@ using TMPro;
 
 namespace CookApps.Game
 {
-    public class SlotItem : MonoBehaviour
+    public class UI_PartyMemberSlotItem : MonoBehaviour
     {
         [SerializeField] private Image image_Face;
         [SerializeField] private TextMeshProUGUI text_Level;
@@ -21,7 +21,7 @@ namespace CookApps.Game
 
             image_Face.sprite = agentTemplate.face;
             text_Level.text = "LV. 1";
-            text_Name.text = agentTemplate.name;
+            text_Name.text = agentTemplate.displayName;
             text_ATK.text = "" + agentTemplate.ATK;
         }
     }

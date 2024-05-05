@@ -16,6 +16,8 @@ namespace CookApps.Game
 
         protected override void Awake()
         {
+            Application.targetFrameRate = 120;
+
             var systems = this.GetComponentsInChildren<ISubSystem>(true);
             foreach (var system in systems)
             {

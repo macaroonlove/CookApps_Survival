@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d06ebafda3153342ba29d3edaeb4b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _template: {fileID: 0}
 --- !u!114 &1404904667999076011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnitCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694779109776875111, guid: 1841852534cfc0047853dc0d33cdd789,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

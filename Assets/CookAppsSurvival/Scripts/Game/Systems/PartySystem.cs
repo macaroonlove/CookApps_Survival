@@ -13,6 +13,7 @@ namespace CookApps.Game
     public class PartySystem : MonoBehaviour, ISubSystem
     {
         [SerializeField] private PartySettingTemplate template;
+        [SerializeField] private UI_PartyMemberSlotCanvas ui_PartyMemberSlot;
 
         private List<PartyUnit> _partyUnits = new List<PartyUnit>();
 
@@ -49,6 +50,8 @@ namespace CookApps.Game
                 partyUnit.Initialize(member);
                 _partyUnits.Add(partyUnit);
             }
+
+            ui_PartyMemberSlot.Initialize(template.partyMembers);
 
             deathAnimWaitForSeconds = new WaitForSeconds(template.deathAnimTime);
             respawnWaitForSeconds = new WaitForSeconds(template.respawnTime - template.deathAnimTime);

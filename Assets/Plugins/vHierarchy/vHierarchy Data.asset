@@ -26,6 +26,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-400143111-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-759762130-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-699339632-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1323915142-0
         values:
         - iColor: 6
           icon: 
@@ -39,8 +40,10 @@ MonoBehaviour:
           icon: Terrain Icon
         - iColor: 0
           icon: Light Icon
+        - iColor: 4
+          icon: 
       goDatasByInstanceId:
-        keys: 44d202004ed20200e4d10200f4d102001cd2020014d20200
+        keys: e0700000ea7000008070000090700000b8700000b0700000d8700000
         values:
         - iColor: 6
           icon: 
@@ -54,6 +57,8 @@ MonoBehaviour:
           icon: Terrain Icon
         - iColor: 0
           icon: Light Icon
+        - iColor: 4
+          icon: 
     - goDatasByGlobalId:
         keys: []
         values: []
