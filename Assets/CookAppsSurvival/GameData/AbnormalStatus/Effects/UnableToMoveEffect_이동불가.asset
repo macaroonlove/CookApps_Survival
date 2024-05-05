@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4cfbadde3ed7c74a8cf6cdd724c96b1, type: 3}
-  m_Name: "Skill_InstantDamage_02_\uD06C\uB9AC\uD2F0\uCEEC \uC0F7"
+  m_Script: {fileID: 11500000, guid: 22d74c68370412d4591508e9461f1fb4, type: 3}
+  m_Name: "UnableToMoveEffect_\uC774\uB3D9\uBD88\uAC00"
   m_EditorClassIdentifier: 
-  damageTarget: 1
-  radius: 4
-  numberOfEnemies: 0
-  damageType: 0
-  damageAmountPer: 2.5

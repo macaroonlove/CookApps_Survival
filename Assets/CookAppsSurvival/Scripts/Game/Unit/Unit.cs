@@ -13,15 +13,18 @@ namespace CookApps.Game
     [RequireComponent(typeof(UnitAnimationController))]
     [RequireComponent(typeof(MoveAbility))]
     [RequireComponent(typeof(HealthAbility))]
+    [RequireComponent(typeof(AbnormalStatusAbility))]
     public abstract class Unit : MonoBehaviour
     {
         protected UnitAnimationController _animationController;
         protected MoveAbility _moveAbility;
         protected HealthAbility _healthAbility;
+        protected AbnormalStatusAbility _abnormalStatusAbility;
 
         public UnitAnimationController animationController => _animationController;
         public MoveAbility moveAbility => _moveAbility;
         public HealthAbility healthAbility => _healthAbility;
+        public AbnormalStatusAbility abnormalStatusAbility => _abnormalStatusAbility;
 
 
         /// <summary>
@@ -61,9 +64,15 @@ namespace CookApps.Game
                 TryGetComponent(out _healthAbility);
             }
 
+            if (_abnormalStatusAbility == null)
+            {
+                TryGetComponent(out _abnormalStatusAbility);
+            }
+
             _animationController.Initialze(this);
             _moveAbility.Initialize(this);
             _healthAbility.Initialize(this);
+            _abnormalStatusAbility.Initialize(this);
 
             _healthAbility.onDeath += OnDeath;
         }
@@ -81,6 +90,7 @@ namespace CookApps.Game
             _animationController.DeInitialize();
             _moveAbility.DeInitialize();
             _healthAbility.DeInitialize();
+            _abnormalStatusAbility.DeInitialize();
 
             _healthAbility.onDeath -= OnDeath;
         }

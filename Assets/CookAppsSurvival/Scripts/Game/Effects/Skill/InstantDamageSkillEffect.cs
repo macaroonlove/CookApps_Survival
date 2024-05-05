@@ -11,29 +11,29 @@ namespace CookApps.Game
         /// <summary>
         /// 피해 대상
         /// </summary>
-        public EEnemyTarget damageTarget;
+        [SerializeField] private EEnemyTarget damageTarget;
 
         /// <summary>
         /// 범위 지정
         /// </summary>
         [EnumCondition("damageTarget", (int)EEnemyTarget.NumEnemyInRange, (int)EEnemyTarget.AllEnemyInRange)]
-        public float radius;
+        [SerializeField] private float radius;
 
         /// <summary>
         /// 공격할 적의 수
         /// </summary>
         [EnumCondition("damageTarget", (int)EEnemyTarget.NumEnemyInRange)]
-        public int numberOfEnemies;
+        [SerializeField] private int numberOfEnemies;
 
         /// <summary>
         /// 데미지 비례 타입
         /// </summary>
-        public EPercentageType damageType;
+        [SerializeField] private EPercentageType damageType;
 
         /// <summary>
         /// 피해량
         /// </summary>
-        public float damageAmountPer;
+        [SerializeField] private float damageAmountPer;
 
         public override bool Excute(PartyUnit unit)
         {

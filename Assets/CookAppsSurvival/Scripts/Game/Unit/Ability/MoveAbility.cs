@@ -83,6 +83,8 @@ namespace CookApps.Game
 
         void Update()
         {
+            if (!_unit.healthAbility.IsAlive) return;
+            if (_unit.abnormalStatusAbility.UnableToMoveEffects.Count > 0) return;
             if (_unit == null) return;
 
             // 타겟이 없을 경우

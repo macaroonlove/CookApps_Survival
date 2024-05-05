@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4cfbadde3ed7c74a8cf6cdd724c96b1, type: 3}
-  m_Name: "Skill_InstantDamage_02_\uD06C\uB9AC\uD2F0\uCEEC \uC0F7"
+  m_Script: {fileID: 11500000, guid: 4e539f6a1ee51284f9ac7ea24b6a0cd5, type: 3}
+  m_Name: "Skill_InstantAbnormalStatus_00_\uAE30\uC808\uC758 \uC77C\uACA9"
   m_EditorClassIdentifier: 
-  damageTarget: 1
-  radius: 4
+  abnormalTarget: 1
+  radius: 1
   numberOfEnemies: 0
-  damageType: 0
-  damageAmountPer: 2.5
+  abnormalStatus: {fileID: 11400000, guid: 2fa73e9ef4e034f428706f3d4e2713ca, type: 2}
+  duration: 1

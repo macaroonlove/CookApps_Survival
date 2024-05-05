@@ -11,23 +11,23 @@ namespace CookApps.Game
         /// <summary>
         /// 피해 대상
         /// </summary>
-        public EAgentTarget healTarget;
+        [SerializeField] private EAgentTarget healTarget;
 
         /// <summary>
         /// 범위 지정
         /// </summary>
         [EnumCondition("healTarget", (int)EAgentTarget.OneAgentInRange, (int)EAgentTarget.AllAgentInRange, (int)EAgentTarget.AllAgentInRangeExceptMe)]
-        public float radius;
+        [SerializeField] private float radius;
 
         /// <summary>
         /// 회복 타입
         /// </summary>
-        public EPercentageType healType;
+        [SerializeField] private EPercentageType healType;
 
         /// <summary>
         /// 피해량
         /// </summary>
-        public float damageAmountPer;
+        [SerializeField] private float damageAmountPer;
 
         public override bool Excute(PartyUnit unit)
         {

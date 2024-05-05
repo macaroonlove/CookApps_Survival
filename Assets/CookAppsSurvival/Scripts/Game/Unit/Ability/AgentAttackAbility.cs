@@ -86,6 +86,7 @@ namespace CookApps.Game
             skillCooldownTime -= Time.deltaTime;
             
             if (_partyUnit.moveAbility.isMove) return false;
+            if (_partyUnit.abnormalStatusAbility.UnableToAttackEffects.Count > 0) return false;
 
             if (skillCooldownTime > 0)
             {
