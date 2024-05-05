@@ -7,8 +7,8 @@ namespace CookApps.Game
 {
     public abstract class AttackAbility : MonoBehaviour
     {
-        [SerializeField, ReadOnly] protected bool _isAttackAble;
-        [SerializeField, ReadOnly] protected float _cooldownTime = 0;
+        [SerializeField, ReadOnly] protected bool isAttackAble;
+        [SerializeField, ReadOnly] protected float cooldownTime = 0;
 
         protected int _pureATK;
         protected float _pureAttackTerm;
@@ -26,12 +26,12 @@ namespace CookApps.Game
 
         protected virtual void Update()
         {
-            if (!_isAttackAble) return;
+            if (!isAttackAble) return;
 
             //공격사이 시간 계산
-            if (_cooldownTime > 0)
+            if (cooldownTime > 0)
             {
-                _cooldownTime -= Time.deltaTime;
+                cooldownTime -= Time.deltaTime;
                 return;
             }
 
@@ -39,7 +39,7 @@ namespace CookApps.Game
             bool isExcute = Action();
             if (isExcute)
             {
-                _cooldownTime = finalAttackTerm;
+                cooldownTime = finalAttackTerm;
             }
         }
 

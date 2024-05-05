@@ -26,6 +26,8 @@ namespace CookApps.Game
 
         public override float pureAttackRange => _template.attackRange;
 
+        public AgentSkillTemplate skillTemplate => _template.skillTemplate;
+
         public EJob job => _template.job;
 
         public void Initialize(AgentTemplate template = null)

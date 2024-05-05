@@ -14,6 +14,7 @@ namespace CookApps.Game
 
         int hash_Move;
         int hash_Attack;
+        int hash_Skill;
         int hash_Hit;
         int hash_Death;
 
@@ -23,6 +24,7 @@ namespace CookApps.Game
 
             hash_Move = Animator.StringToHash("move");
             hash_Attack = Animator.StringToHash("attack");
+            hash_Skill = Animator.StringToHash("skill");
             hash_Hit = Animator.StringToHash("hit");
             hash_Death = Animator.StringToHash("death");
         }
@@ -42,6 +44,11 @@ namespace CookApps.Game
         internal void Attack()
         {
             _animator.SetTrigger(hash_Attack);
+        }
+        
+        internal void Skill()
+        {
+            _animator.SetTrigger(hash_Skill);
         }
 
         internal void Hit(int a)

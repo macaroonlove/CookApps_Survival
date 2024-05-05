@@ -91,7 +91,7 @@ namespace CookApps.Game
                 if (_isMainUnit)
                 {
                     // 자신을 기준으로 가장 가까운 적을 찾기
-                    _target = _enemySystem.GetNearestEnemy(_unit.transform.position);
+                    _target = _enemySystem.FindNearestEnemy(_unit.transform.position);
                     _targetPos = _target.transform;
                 }
                 else

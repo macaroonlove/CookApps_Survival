@@ -37,10 +37,18 @@ namespace CookApps.Game
         }
 
         /// <summary>
-        /// 메인 유닛으로부터 가장 가까운 적을 반환
+        /// 모든 적 반환
+        /// </summary>
+        internal List<EnemyUnit> AllEnemies()
+        {
+            return _enemies;
+        }
+
+        /// <summary>
+        /// 자신을 기준으로 가장 가까운 적을 반환
         /// </summary>
         /// <returns></returns>
-        internal EnemyUnit GetNearestEnemy(Vector3 mainUnitPos)
+        internal EnemyUnit FindNearestEnemy(Vector3 unitPos)
         {
             EnemyUnit nearestEnemy = null;
             float nearestDistanceSqr = Mathf.Infinity;
@@ -49,7 +57,7 @@ namespace CookApps.Game
             {
                 if (enemy != null && enemy.isActiveAndEnabled)
                 {
-                    float distanceSqr = (enemy.transform.position - mainUnitPos).sqrMagnitude;
+                    float distanceSqr = (enemy.transform.position - unitPos).sqrMagnitude;
                     if (distanceSqr < nearestDistanceSqr)
                     {
                         nearestEnemy = enemy;
@@ -60,6 +68,38 @@ namespace CookApps.Game
 
             return nearestEnemy;
         }
+
+        /// <summary>
+        /// 범위 내 적 찾기
+        /// </summary>
+        internal List<EnemyUnit> FindEnemiesInRadius(Vector3 unitPos, float radius, int maxCount = int.MaxValue)
+        {
+            List<EnemyUnit> enemies = new List<EnemyUnit>();
+
+            foreach (EnemyUnit enemy in _enemies)
+            {
+                if (enemies.Count >= maxCount) break;
+
+                if (enemy != null && enemy.isActiveAndEnabled)
+                {
+                    var diff = enemy.transform.position - unitPos;
+
+                    var distance = diff.magnitude;
+
+                    if (distance <= radius)
+                    {
+                        if (enemies.Contains(enemy) == false)
+                        {
+                            enemies.Add(enemy);
+                        }
+                    }
+                }
+            }
+
+            return enemies;
+        }
+
+        
 
     }
 }

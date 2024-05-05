@@ -53,15 +53,16 @@ namespace CookApps.Game
             _pureATK = enemyUnit.pureATK;
             _pureAttackTerm = enemyUnit.pureAttackTerm;
             _pureAttackDistance = enemyUnit.pureAttackRange;
-            _cooldownTime = finalAttackTerm;
-            _isAttackAble = true;
+
+            cooldownTime = finalAttackTerm;
+            isAttackAble = true;
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
         }
 
         internal void DeInitialize()
         {
-            _isAttackAble = false;
+            isAttackAble = false;
         }
 
         protected override bool Action()

@@ -14,7 +14,7 @@ namespace CookApps.Game
         [SerializeField] private PartySettingTemplate template;
         [SerializeField] private UI_PartyMemberSlotCanvas ui_PartyMemberSlot;
 
-        private Stack<PartyUnit> _partyUnits = new Stack<PartyUnit>();
+        private List<PartyUnit> _partyUnits = new List<PartyUnit>();
 
         private WaitForSeconds deathAnimWaitForSeconds;
         private WaitForSeconds respawnWaitForSeconds;
@@ -29,7 +29,7 @@ namespace CookApps.Game
             {
                 if (_partyUnits.Count > 0)
                 {
-                    return _partyUnits.Peek();
+                    return _partyUnits[0];
                 }
                 return null;
             }
@@ -37,14 +37,14 @@ namespace CookApps.Game
 
         public void Initialize()
         {
-            for(int i = template.partyMembers.Count - 1; i >= 0; i--)
+            for(int i = 0; i < template.partyMembers.Count; i++)
             {
                 var member = template.partyMembers[i];
 
                 var unit = Instantiate(member.prefab, transform.GetChild(0).position + Vector3.right * i, Quaternion.identity, transform.GetChild(0));
                 var partyUnit = unit.GetComponent<PartyUnit>();
                 partyUnit.Initialize(member);
-                _partyUnits.Push(partyUnit);
+                _partyUnits.Add(partyUnit);
             }
 
             ui_PartyMemberSlot.Initialize(template.partyMembers);
@@ -73,7 +73,7 @@ namespace CookApps.Game
 
         internal void UnitDieRevival(PartyUnit unit)
         {
-            _partyUnits.Pop();
+            _partyUnits.RemoveAt(0);
             if (_partyUnits.Count <= 0)
             {
                 // 게임 종료
@@ -94,7 +94,7 @@ namespace CookApps.Game
             unit.transform.position = GetCenterPosition();
             unit.gameObject.SetActive(true);
             unit.Initialize();
-            _partyUnits.Push(unit);
+            _partyUnits.Insert(0, unit);
             onUnitRevival?.Invoke(mainUnit);
         }
 
@@ -110,6 +110,36 @@ namespace CookApps.Game
             Vector3 centerPosition = sumPosition / _partyUnits.Count;
 
             return centerPosition;
+        }
+
+        /// <summary>
+        /// 범위 내 파티 멤버 찾기
+        /// </summary>
+        internal List<PartyUnit> FindMembersInRadius(Vector3 unitPos, float radius, int maxCount = int.MaxValue)
+        {
+            List<PartyUnit> members = new List<PartyUnit>();
+
+            foreach (PartyUnit member in _partyUnits)
+            {
+                if (members.Count >= maxCount) break;
+
+                if (member != null && member.isActiveAndEnabled)
+                {
+                    var diff = member.transform.position - unitPos;
+
+                    var distance = diff.magnitude;
+
+                    if (distance <= radius)
+                    {
+                        if (members.Contains(member) == false)
+                        {
+                            members.Add(member);
+                        }
+                    }
+                }
+            }
+
+            return members;
         }
     }
 }

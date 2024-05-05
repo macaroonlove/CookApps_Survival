@@ -21,5 +21,4 @@ MonoBehaviour:
   ATK: 10
   attackTerm: 1
   attackRange: 4
-  skillTerm: 4
-  skillRange: 6
+  skillTemplate: {fileID: 11400000, guid: 3de9f2f4b83e66341be851a7c23bae60, type: 2}

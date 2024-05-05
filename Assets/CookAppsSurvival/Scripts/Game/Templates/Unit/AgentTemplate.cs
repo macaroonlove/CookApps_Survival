@@ -28,11 +28,8 @@ namespace CookApps.Game
         [Space(10)]
         public float attackTerm;
         public float attackRange;
-        
-        [Space(10)]
-        public float skillTerm;
-        public float skillRange;
 
-        //[Header("스킬")]
+        [Header("스킬")]
+        public AgentSkillTemplate skillTemplate;
     }
 }
