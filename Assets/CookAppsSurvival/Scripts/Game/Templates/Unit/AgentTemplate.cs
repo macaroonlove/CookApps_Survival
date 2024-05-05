@@ -15,6 +15,10 @@ namespace CookApps.Game
         [Header("기본 정보")]
         public string displayName;
         public EJob job;
+
+        [Header("리소스 정보")]
+        public Sprite face;
+        public GameObject prefab;
         
         [Header("전투 관련")]
         public int maxHp;

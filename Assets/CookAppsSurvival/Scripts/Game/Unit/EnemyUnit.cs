@@ -24,9 +24,11 @@ namespace CookApps.Game
 
         public override float pureAttackRange => _template.attackRange;
 
-        public override void Initialize()
+        public void Initialize()
         {
             base.Initialize();
+
+            //_template = template;
 
             if (_enemyAttackAbility == null)
             {

@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d6d4b3a7359dd7419a4e6f523edbcb9, type: 3}
-  m_Name: "Agent_01_\uD0F1\uCEE4"
+  m_Name: "Agent_01_\uADFC\uAC70\uB9AC\uB51C\uB7EC"
   m_EditorClassIdentifier: 
   id: 1
-  displayName: "\uD0F1\uCEE4"
-  job: 0
-  maxHp: 50
-  ATK: 5
-  attackTerm: 1.5
+  displayName: "\uADFC\uAC70\uB9AC \uB51C\uB7EC"
+  job: 1
+  face: {fileID: 21300000, guid: 7e84cb5f8932874499be7eb392004d96, type: 3}
+  prefab: {fileID: 1669497007939756099, guid: 87c3e4c22677df94f8b81f9cabb455c7, type: 3}
+  maxHp: 200
+  ATK: 10
+  attackTerm: 1
   attackRange: 1
   skillTerm: 3
-  skillRange: 1
+  skillRange: 2

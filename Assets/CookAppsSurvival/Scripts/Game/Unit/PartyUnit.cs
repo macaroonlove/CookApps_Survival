@@ -10,7 +10,7 @@ namespace CookApps.Game
     [RequireComponent(typeof(AgentAttackAbility))]
     public class PartyUnit : Unit
     {
-        [SerializeField] private AgentTemplate _template;
+        private AgentTemplate _template;
 
         private PartySystem _partySystem;
 
@@ -28,8 +28,13 @@ namespace CookApps.Game
 
         public EJob job => _template.job;
 
-        public override void Initialize()
+        public void Initialize(AgentTemplate template = null)
         {
+            if (template != null)
+            {
+                _template = template;
+            }
+
             base.Initialize();
 
             if (_agentAttackAbility == null)

@@ -23,6 +23,7 @@ namespace CookApps.Game
         private NavMeshAgent _agent;
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
+        private SpawnSystem _spawnSystem;
 
 
         public bool isMove => _isMove;
@@ -48,11 +49,11 @@ namespace CookApps.Game
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
+            _spawnSystem = BattleManager.Instance.GetSubSystem<SpawnSystem>();
 
             _partySystem.onUnitRevival += NewTarget;
             _partySystem.onUnitDie += NewTarget;
-
-            NewTarget(_partySystem.mainUnit);
+            _spawnSystem.onCompleteSpawn += NewTarget;
         }
 
         internal void DeInitialize()
@@ -78,13 +79,11 @@ namespace CookApps.Game
         public void NewAttackTarget(Unit target)
         {
             _targetPos = target.transform;
-
-           
         }
 
         void Update()
         {
-            //if (_unit.healthA) return;
+            if (_unit == null) return;
 
             // 타겟이 없을 경우
             if (_targetPos == null || !_targetPos.gameObject.activeSelf)

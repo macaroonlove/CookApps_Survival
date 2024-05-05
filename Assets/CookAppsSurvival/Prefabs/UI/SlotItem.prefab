@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Knight
+  m_text: "\uD0F1\uCEE4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bde23ed28a77c42439b5b73ab155653b, type: 2}
   m_sharedMaterial: {fileID: 772073696620973053, guid: bde23ed28a77c42439b5b73ab155653b,
@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 8248862567252446490}
   - component: {fileID: 8248862567252446484}
   - component: {fileID: 8248862567252446491}
+  - component: {fileID: 1116229497619621743}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -1030,7 +1031,7 @@ RectTransform:
   - {fileID: 2472595462783257381}
   - {fileID: 7437695780076485833}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1075,3 +1076,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1116229497619621743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248862567252446489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a31396d2c2273a4790786e2ed3bb027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image_Face: {fileID: 2022461531594257718}
+  text_Level: {fileID: 3649786190393430389}
+  text_Name: {fileID: 924059842506078429}
+  text_ATK: {fileID: 1688778586615556604}

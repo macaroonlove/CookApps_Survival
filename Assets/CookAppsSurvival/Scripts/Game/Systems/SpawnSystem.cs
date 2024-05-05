@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CookApps.Game
 {
@@ -21,6 +22,8 @@ namespace CookApps.Game
         private int _simultaneousMaxCnt = 1;
         private float _spawnRadius = 1;
         private int _size = 10;
+
+        internal event UnityAction<PartyUnit> onCompleteSpawn;
 
         public void Initialize()
         {
@@ -91,8 +94,6 @@ namespace CookApps.Game
             if (_enemyUnits.Count == 0)
             {
                 enemyUnit = Instantiate(_prefab, Vector3.zero, Quaternion.identity, transform).GetComponent<EnemyUnit>();
-                //enemyUnit.gameObject.SetActive(false);
-                //_enemyUnits.Push(enemyUnit);
             }
             else
             {
@@ -101,9 +102,12 @@ namespace CookApps.Game
             }
             var spawnPos = GetRandomPos(partyPos);
             enemyUnit.transform.position = spawnPos;
+            // TODO: 템플릿으로 동작하도록 수정
             enemyUnit.Initialize();
 
             _enemySystem.Add(enemyUnit);
+
+            onCompleteSpawn?.Invoke(_partySystem.mainUnit);
         }
 
         public void DespawnEnemy(EnemyUnit enemyUnit)

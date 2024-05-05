@@ -44,7 +44,7 @@ namespace CookApps.Game
         public abstract float pureAttackRange { get; }
         
 
-        public virtual void Initialize()
+        protected void Initialize()
         {
             if (_animationController == null)
             {

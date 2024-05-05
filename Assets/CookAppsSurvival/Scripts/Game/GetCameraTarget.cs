@@ -21,8 +21,6 @@ namespace CookApps.Game
 
             _partySystem.onUnitRevival += NewTarget;
             _partySystem.onUnitDie += NewTarget;
-
-            NewTarget(_partySystem.mainUnit);
         }
 
         void NewTarget(PartyUnit mainUnit)
