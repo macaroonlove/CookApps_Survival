@@ -38,6 +38,8 @@ namespace CookApps.Game
         public float moveSpeed;
 
         [Header("½ºÅ³")]
+        public bool isUpgade;
         public AgentSkillTemplate skillTemplate;
+        public AgentSkillTemplate skillTemplate_Upgrade;
     }
 }

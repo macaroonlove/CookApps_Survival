@@ -28,6 +28,8 @@ namespace CookApps.Game
 
             float finalMaxHp = unit.pureMaxHp;
 
+            float increase = 1;
+
             // 체력 증감 로직 추후 추가
             // 레벨에 의한 증가
             if (_unit is PartyUnit partyUnit)
@@ -36,7 +38,7 @@ namespace CookApps.Game
 
                 finalMaxHp += (level - 1) * 10;
             }
-            
+
             _maxHp = (int)finalMaxHp;
 
             SetHp(_maxHp);

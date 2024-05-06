@@ -24,7 +24,14 @@ namespace CookApps.Game
             {
                 float final = _pureAttackTerm;
 
-                // 공격 속도 증가 아이템 적용 (추후 적용)
+                float increase = 1;
+                // 상점 버프 아이템을 통한 공격속도 증가
+                foreach (var effect in _partyUnit.buffAbility.AttackSpeedIncreaseDataEffects)
+                {
+                    increase += effect.value;
+                }
+
+                final /= increase;
 
                 //최소공격속도 : 기본 공격속도의 30% 보장
                 final = Mathf.Min(final, _pureAttackTerm / 0.3f);
@@ -58,14 +65,23 @@ namespace CookApps.Game
         {
             get
             {
-                int final = _pureATK;
+                float final = _pureATK;
 
-                // 레벨로 인한 공격력 상승 (임의로 +10씩)
+                float increase = 1;
+
+                // 레벨로 인한 공격력 추가 (임의로 +10씩)
                 int level = _partyUnit.GetLevel();
-
                 final += (level - 1) * 10;
 
-                return final;
+                // 상점 버프 아이템을 통한 공격력 증가
+                foreach(var effect in _partyUnit.buffAbility.ATKIncreaseDataEffects)
+                {
+                    increase += effect.value;
+                }
+
+                final *= increase;
+
+                return (int)final;
             }
         }
 

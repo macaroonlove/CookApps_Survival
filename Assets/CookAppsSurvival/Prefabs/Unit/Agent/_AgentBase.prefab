@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 5771441017357215129}
   - component: {fileID: -8847540027092538056}
   - component: {fileID: 5030220095723590687}
+  - component: {fileID: 1694492176560842733}
+  - component: {fileID: 2295506512228676488}
+  - component: {fileID: 2069505572172075890}
   m_Layer: 0
   m_Name: _AgentBase
   m_TagString: Untagged
@@ -114,6 +117,7 @@ MonoBehaviour:
   _isMove: 0
   _isMainUnit: 0
   _target: {fileID: 0}
+  _isPatrol: 0
 --- !u!114 &-8847540027092538056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,8 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47d717f7c1e1484c92f85e07a030dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAttackAble: 0
-  _cooldownTime: 0
+  isAttackAble: 0
+  cooldownTime: 0
+  attackTarget: {fileID: 0}
+  skillCooldownTime: 0
 --- !u!114 &5030220095723590687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +148,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 0
   _currentHp: 0
+--- !u!114 &1694492176560842733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4873233286986159735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6759061982ea59341b8e13e71f6a43cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusList: []
+--- !u!114 &2295506512228676488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4873233286986159735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dac0272b4ffafa41a3dee500241a5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2069505572172075890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4873233286986159735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae8f496d9a2153499ea267d2c7481a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusList: []
 --- !u!1001 &4217735459127264205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 7694779109776875111, guid: 1841852534cfc0047853dc0d33cdd789,
         type: 3}
       propertyPath: m_FillOrigin
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

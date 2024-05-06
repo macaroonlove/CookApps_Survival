@@ -15,6 +15,8 @@ MonoBehaviour:
   id: 0
   displayName: "\uD0F1\uCEE4"
   job: 0
+  Level: 1
+  EXP: 0
   face: {fileID: 21300000, guid: 99ec2bd9fd97deb4c9621efcaeee69e0, type: 3}
   prefab: {fileID: 7113095535466815644, guid: 8dcc8bf376b481e4e9d9cd4a723aa8cd, type: 3}
   maxHp: 400
@@ -22,4 +24,7 @@ MonoBehaviour:
   attackTerm: 1.5
   attackRange: 1
   moveSpeed: 3.5
+  isUpgade: 0
   skillTemplate: {fileID: 11400000, guid: e422446774c81644188f4eb1a31a8ecf, type: 2}
+  skillTemplate_Upgrade: {fileID: 11400000, guid: 52454d190954df54f84cb48d5779122c,
+    type: 2}

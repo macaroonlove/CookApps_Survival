@@ -7,14 +7,36 @@ namespace CookApps.Game
 {
     public class UI_ShopCanvas : MonoBehaviour
     {
+        List<UI_ShopItem> items = new List<UI_ShopItem>();
+
+        private bool isFirst = true;
+
         void Awake()
         {
-            List<UI_ShopItem> items = new List<UI_ShopItem>();
             items.AddRange(GetComponentsInChildren<UI_ShopItem>());
+        }
 
-            foreach (var item in items)
+        public void Show()
+        {
+            if (isFirst)
             {
-                item.Initialize();
+                isFirst = !isFirst;
+
+                foreach (var item in items)
+                {
+                    if (item is UI_ShopBuffItem buffItem)
+                    {
+                        buffItem.Initialize();
+                    }
+                    else if (item is UI_ShopHealItem healItem)
+                    {
+                        healItem.Initialize();
+                    }
+                    else if (item is UI_ShopSkillUpgradeItem skillUpgradeItem)
+                    {
+                        skillUpgradeItem.Initialize();
+                    }
+                }
             }
         }
     }

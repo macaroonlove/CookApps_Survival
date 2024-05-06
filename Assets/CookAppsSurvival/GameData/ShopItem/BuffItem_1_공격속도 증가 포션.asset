@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64984a34022b56b42a199eb734a3d6de, type: 3}
+  m_Name: "BuffItem_1_\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00 \uD3EC\uC158"
+  m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 84854806006c0264897382b5e812a427, type: 3}
+  desc: "\uACF5\uACA9\uC18D\uB3C4 30% \uC99D\uAC00 \uD3EC\uC158"
+  price: 10
+  template: {fileID: 11400000, guid: ff3d8b21d0d951e4da8850d26f5beeb0, type: 2}

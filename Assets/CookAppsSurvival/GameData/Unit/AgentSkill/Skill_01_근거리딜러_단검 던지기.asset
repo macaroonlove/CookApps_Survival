@@ -16,6 +16,6 @@ MonoBehaviour:
   description: "2m \uBC94\uC704 \uB0B4\uC758 \uBAA8\uB4E0 \uC801\uB4E4\uC5D0\uAC8C
     \uACF5\uACA9\uB825\uC758 100%\uB9CC\uD07C \uB370\uBBF8\uC9C0\uB97C \uC785\uD799\uB2C8\uB2E4."
   cooldownTime: 3
-  face: {fileID: 0}
+  face: {fileID: 21300000, guid: 9eed2398c1fa63c4c8eca299fa9980ac, type: 3}
   effects:
   - {fileID: 11400000, guid: 2b28639b225e16f42848ec1fe2a33e5d, type: 2}

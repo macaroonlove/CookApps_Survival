@@ -33,6 +33,28 @@ namespace CookApps.Game
         public Unit target => _target;
         public Transform targetPos => _targetPos;
 
+        /// <summary>
+        /// 최종 이동속도
+        /// </summary>
+        internal float finalMoveSpeed
+        {
+            get
+            {
+                float final = _unit.pureMoveSpeed;
+
+                float increase = 1;
+                // 상점 버프 아이템을 통한 공격속도 증가
+                foreach (var effect in _unit.buffAbility.MoveSpeedIncreaseDataEffects)
+                {
+                    increase += effect.value;
+                }
+
+                final *= increase;
+
+                return final;
+            }
+        }
+
         internal void Initialize(Unit unit)
         {
             _unit = unit;
@@ -40,7 +62,6 @@ namespace CookApps.Game
             if (TryGetComponent(out _agent))
             {
                 _agent.enabled = true;
-                _agent.speed = unit.pureMoveSpeed;
                 _agent.stoppingDistance = unit.pureAttackRange;
             }
             else
@@ -120,6 +141,7 @@ namespace CookApps.Game
             // 이동
             if (_agent != null && _targetPos != null)
             {
+                _agent.speed = finalMoveSpeed;
                 _agent.SetDestination(_targetPos.position);
 
                 if (_agent.isActiveAndEnabled && !_agent.isStopped && _agent.velocity.magnitude > 0.3f)

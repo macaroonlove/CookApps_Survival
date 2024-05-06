@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CookApps.Game
 {
-    [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/AbnormalStatus", fileName = "AbnormalStatus", order = 0)]
+    [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/State/AbnormalStatus", fileName = "AbnormalStatus", order = 0)]
     public class AbnormalStatusTemplate : ScriptableObject
     {
         public string displayName;

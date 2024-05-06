@@ -39,5 +39,12 @@ namespace CookApps.Game
         {
             return gold.Value;
         }
+
+        internal void UseGold(int value)
+        {
+            gold.AddValue(-value);
+
+            onChangedGold?.Invoke(gold.Value);
+        }
     }
 }

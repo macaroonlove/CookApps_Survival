@@ -15,6 +15,7 @@ namespace CookApps.Game
     [RequireComponent(typeof(HealthAbility))]
     [RequireComponent(typeof(AbnormalStatusAbility))]
     [RequireComponent(typeof(StatisticsAbility))]
+    [RequireComponent(typeof(BuffAbility))]
     public abstract class Unit : MonoBehaviour
     {
         protected UnitAnimationController _animationController;
@@ -22,12 +23,14 @@ namespace CookApps.Game
         protected HealthAbility _healthAbility;
         protected AbnormalStatusAbility _abnormalStatusAbility;
         protected StatisticsAbility _statisticsAbility;
+        protected BuffAbility _buffAbility;
 
         public UnitAnimationController animationController => _animationController;
         public MoveAbility moveAbility => _moveAbility;
         public HealthAbility healthAbility => _healthAbility;
         public AbnormalStatusAbility abnormalStatusAbility => _abnormalStatusAbility;
         public StatisticsAbility statisticsAbility => _statisticsAbility;
+        public BuffAbility buffAbility => _buffAbility;
 
         /// <summary>
         /// 유닛의 고유번호
@@ -86,11 +89,17 @@ namespace CookApps.Game
                 TryGetComponent(out _statisticsAbility);
             }
 
+            if (_buffAbility == null)
+            {
+                TryGetComponent(out _buffAbility);
+            }
+
             _animationController.Initialze(this);
             _moveAbility.Initialize(this);
             _healthAbility.Initialize(this);
             _abnormalStatusAbility.Initialize(this);
             _statisticsAbility.Initialize(this);
+            _buffAbility.Initialize(this);
 
             _healthAbility.onDeath += OnDeath;
         }
