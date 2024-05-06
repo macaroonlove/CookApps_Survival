@@ -33,6 +33,8 @@ namespace CookApps.Game
 
         public override float pureMoveSpeed => _template.moveSpeed;
 
+        public EnemyTemplate template => _template;
+
         public float trackableDistance => _template.trackableDistance;
 
         public float patrolRadius => _template.patrolRadius;

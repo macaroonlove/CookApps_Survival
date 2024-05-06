@@ -19,6 +19,7 @@ namespace CookApps.Game
 
         [Header("보상 관련")]
         public int dropExp;
+        public int dropGold;
 
         [Header("리소스 관련")]
         public GameObject prefab;

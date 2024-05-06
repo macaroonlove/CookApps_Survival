@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7f972b3234ac9439f52846fc71e46b, type: 3}
+  m_Name: Glod
+  m_EditorClassIdentifier: 
+  _value:
+    currentCryptoKey: 1041116706
+    hiddenValue: 1041116706
+    fakeValue: 0
+    fakeValueActive: 0
+    inited: 1
+  _readOnly: 0
+  _raiseWarning: 1
+  _isClamped: 0
+  _minClampedValue:
+    currentCryptoKey: 1066579002
+    hiddenValue: 1066579002
+    fakeValue: 0
+    fakeValueActive: 0
+    inited: 1
+  _maxClampedValue:
+    currentCryptoKey: 1937810836
+    hiddenValue: 1937810836
+    fakeValue: 0
+    fakeValueActive: 0
+    inited: 1
+  _event:
+    m_PersistentCalls:
+      m_Calls: []

@@ -150,7 +150,7 @@ namespace CookApps.Game
             bool isLeft = IsUnitLeft();
 
             float scaleX = isLeft ^ _isReverse ? 1f : -1f;
-            transform.DOScaleX(scaleX, 0.1f);
+            transform.GetChild(1).DOScaleX(scaleX, 0.1f);
         }
     }
 }

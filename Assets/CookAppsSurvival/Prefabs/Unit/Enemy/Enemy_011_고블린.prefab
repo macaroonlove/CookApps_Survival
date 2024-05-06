@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5326407655987662622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3822290167086576063}
+  m_Layer: 0
+  m_Name: Flip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3822290167086576063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326407655987662622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2370456570947589501}
+  m_Father: {fileID: 4231180629950523371}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7591704360179301251
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,12 +57,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7591704360179301251}
-  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.785, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4231180629950523371}
+  m_Father: {fileID: 3822290167086576063}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3197157789552568165
@@ -124,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 3225473598611850876, guid: 8396addf1d7f5294392753e430d29ffd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3225473598611850876, guid: 8396addf1d7f5294392753e430d29ffd,
         type: 3}
@@ -179,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 7882243882705099999, guid: 8396addf1d7f5294392753e430d29ffd,
         type: 3}
       propertyPath: m_Name
-      value: _EnemyBase Variant
+      value: "Enemy_011_\uACE0\uBE14\uB9B0"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -187,7 +219,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3225473598611850876, guid: 8396addf1d7f5294392753e430d29ffd,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2370456570947589501}
+      addedObject: {fileID: 3822290167086576063}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8396addf1d7f5294392753e430d29ffd, type: 3}
 --- !u!4 &4231180629950523371 stripped

@@ -20,7 +20,7 @@ namespace CookApps.Opening
         private void OnClick_InGame()
         {
             //SceneLoadingManager.LoadScene("Lobby", true);
-            SceneManager.LoadScene("Lobby");
+            SceneManager.LoadScene("Game");
         }
 
         private void OnClick_Setting()
