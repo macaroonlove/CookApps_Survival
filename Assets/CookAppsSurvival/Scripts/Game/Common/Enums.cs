@@ -73,4 +73,12 @@ namespace CookApps.Game
         /// </summary>
         AllAgentInRangeExceptMe,
     }
+
+    public enum ESpeed
+    {
+        None,
+        Speedx2,
+        Speedx3,
+        Speedx4,
+    }
 }
