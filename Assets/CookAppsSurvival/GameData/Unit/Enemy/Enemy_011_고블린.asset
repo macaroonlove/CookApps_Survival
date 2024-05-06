@@ -15,8 +15,12 @@ MonoBehaviour:
   id: 11
   displayName: "\uACE0\uBE14\uB9B0"
   enemyType: 1
-  prefab: {fileID: 7988545859562375077, guid: 23b0558f8d2fc7440a182c81ecd38d3c, type: 3}
+  prefab: {fileID: 8869936737799765320, guid: 4ab0a7eac1caeb349a0406c34520a2bb, type: 3}
   maxHp: 100
   ATK: 10
   attackTerm: 1
   attackRange: 1
+  moveSpeed: 3.5
+  trackableDistance: 20
+  patrolRadius: 5
+  patrolWaitTime: 3

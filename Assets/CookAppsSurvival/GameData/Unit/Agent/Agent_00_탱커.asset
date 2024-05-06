@@ -21,4 +21,5 @@ MonoBehaviour:
   ATK: 5
   attackTerm: 1.5
   attackRange: 1
+  moveSpeed: 3.5
   skillTemplate: {fileID: 11400000, guid: e422446774c81644188f4eb1a31a8ecf, type: 2}

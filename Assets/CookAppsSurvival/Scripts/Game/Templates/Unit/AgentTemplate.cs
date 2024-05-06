@@ -29,6 +29,9 @@ namespace CookApps.Game
         public float attackTerm;
         public float attackRange;
 
+        [Header("이동 관련")]
+        public float moveSpeed;
+
         [Header("스킬")]
         public AgentSkillTemplate skillTemplate;
     }

@@ -68,6 +68,7 @@ namespace CookApps.Game
         protected override bool Action()
         {
             if (_enemyUnit.moveAbility.isMove) return false;
+            if (_enemyUnit.moveAbility.isPatrol) return false;
             if (_enemyUnit.abnormalStatusAbility.UnableToAttackEffects.Count > 0) return false;
 
             var attackTarget = _enemyUnit.moveAbility.target;

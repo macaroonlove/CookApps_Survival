@@ -18,15 +18,17 @@ namespace CookApps.Game
         [SerializeField, ReadOnly] private bool _isMove;
         [SerializeField, ReadOnly] private bool _isMainUnit;
         [SerializeField, ReadOnly] private Unit _target;
+        [SerializeField, ReadOnly] private bool _isPatrol;
 
         private Unit _unit;
         private NavMeshAgent _agent;
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
         private SpawnSystem _spawnSystem;
-
+        
 
         public bool isMove => _isMove;
+        public bool isPatrol => _isPatrol;
 
         public Unit target => _target;
         public Transform targetPos => _targetPos;
@@ -38,6 +40,7 @@ namespace CookApps.Game
             if (TryGetComponent(out _agent))
             {
                 _agent.enabled = true;
+                _agent.speed = unit.pureMoveSpeed;
                 _agent.stoppingDistance = unit.pureAttackRange;
             }
             else
@@ -76,13 +79,25 @@ namespace CookApps.Game
             }
         }
 
-        public void NewAttackTarget(Unit target)
+        internal void NewAttackTarget(Unit target)
         {
             _targetPos = target.transform;
         }
 
+        internal void NewDestination(Vector3 position)
+        {
+            _agent.SetDestination(position);
+        }
+
+        internal void SetIsPatrol(bool isPatrol)
+        {
+            //_agent.isStopped = isPatrol;
+            _isPatrol = isPatrol;
+        }
+
         void Update()
         {
+            if (_isPatrol) return;
             if (!_unit.healthAbility.IsAlive) return;
             if (_unit.abnormalStatusAbility.UnableToMoveEffects.Count > 0) return;
             if (_unit == null) return;

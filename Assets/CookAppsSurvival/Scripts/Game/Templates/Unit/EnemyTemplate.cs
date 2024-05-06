@@ -25,7 +25,16 @@ namespace CookApps.Game
         public int ATK;
         //public int DEF;
 
+        [Space(10)]
         public float attackTerm;
         public float attackRange;
+
+        [Header("이동 관련")]
+        public float moveSpeed;
+        public float trackableDistance;
+
+        [Header("추적 관련")]
+        public float patrolRadius;
+        public float patrolWaitTime;
     }
 }

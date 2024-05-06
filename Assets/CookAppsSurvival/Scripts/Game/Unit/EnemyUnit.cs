@@ -8,13 +8,16 @@ namespace CookApps.Game
     /// Àû À¯´Ö
     /// </summary>
     [RequireComponent(typeof(EnemyAttackAbility))]
+    [RequireComponent(typeof(PatrolAbility))]
     public class EnemyUnit : Unit
     {
         [SerializeField] private EnemyTemplate _template;
 
         protected EnemyAttackAbility _enemyAttackAbility;
+        protected PatrolAbility _patrolAbility;
 
         public EnemyAttackAbility enemyAttackAbility => _enemyAttackAbility;
+        public PatrolAbility patrolAbility => _patrolAbility;
 
         public override int pureATK => _template.ATK;
 
@@ -23,6 +26,14 @@ namespace CookApps.Game
         public override float pureAttackTerm => _template.attackTerm;
 
         public override float pureAttackRange => _template.attackRange;
+
+        public override float pureMoveSpeed => _template.moveSpeed;
+
+        public float trackableDistance => _template.trackableDistance;
+
+        public float patrolRadius => _template.patrolRadius;
+
+        public float patrolWaitTime => _template.patrolWaitTime;
 
         public void Initialize()
         {
@@ -35,7 +46,13 @@ namespace CookApps.Game
                 TryGetComponent(out _enemyAttackAbility);
             }
 
+            if (_patrolAbility == null)
+            {
+                TryGetComponent(out _patrolAbility);
+            }
+
             _enemyAttackAbility.Initialize(this);
+            _patrolAbility.Initialize(this);
         }
 
         protected override void OnDeath()
@@ -55,6 +72,7 @@ namespace CookApps.Game
             base.DeInitialize();
 
             _enemyAttackAbility.DeInitialize();
+            _patrolAbility.DeInitialize();
         }
     }
 }

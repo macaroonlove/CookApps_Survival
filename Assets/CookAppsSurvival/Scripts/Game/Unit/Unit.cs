@@ -46,6 +46,11 @@ namespace CookApps.Game
         /// </summary>
         public abstract float pureAttackRange { get; }
         
+        /// <summary>
+        /// 순수 이동 속도
+        /// </summary>
+        public abstract float pureMoveSpeed { get; }
+        
 
         protected void Initialize()
         {
