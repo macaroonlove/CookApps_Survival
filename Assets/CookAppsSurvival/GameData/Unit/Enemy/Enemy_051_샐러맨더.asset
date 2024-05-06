@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 51
   displayName: "\uC0D0\uB7EC\uB9E8\uB354"
   enemyType: 1
+  dropExp: 20
   prefab: {fileID: 4647400950747332713, guid: fa4f49da4ae2d4440a2d4d8d3fec7551, type: 3}
   maxHp: 100
   ATK: 10

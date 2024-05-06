@@ -16,8 +16,11 @@ namespace CookApps.Game
         public string displayName;
 
         public EEnemyType enemyType;
-        
-        [Space(10)]
+
+        [Header("보상 관련")]
+        public int dropExp;
+
+        [Header("리소스 관련")]
         public GameObject prefab;
 
         [Header("전투 관련")]

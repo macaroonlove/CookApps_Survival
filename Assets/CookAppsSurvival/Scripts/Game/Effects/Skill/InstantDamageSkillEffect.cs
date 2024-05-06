@@ -48,7 +48,7 @@ namespace CookApps.Game
 
                     var damage = GetAmount(unit);
 
-                    enemy.healthAbility.Damaged(damage);
+                    enemy.healthAbility.Damaged(damage, unit.id);
                 }
             }
 

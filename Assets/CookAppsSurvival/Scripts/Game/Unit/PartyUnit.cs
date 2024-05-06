@@ -13,10 +13,13 @@ namespace CookApps.Game
         private AgentTemplate _template;
 
         private PartySystem _partySystem;
+        private LevelSystem _levelSystem;
 
         protected AgentAttackAbility _agentAttackAbility;
 
         public AgentAttackAbility agentAttackAbility => _agentAttackAbility;
+
+        public override int id => _template.id;
 
         public override int pureATK => _template.ATK;
 
@@ -27,6 +30,8 @@ namespace CookApps.Game
         public override float pureAttackRange => _template.attackRange;
 
         public override float pureMoveSpeed => _template.moveSpeed;
+
+        public AgentTemplate template => _template;
 
         public AgentSkillTemplate skillTemplate => _template.skillTemplate;
 
@@ -49,6 +54,7 @@ namespace CookApps.Game
             _agentAttackAbility.Initialize(this);
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
+            _levelSystem = BattleManager.Instance.GetSubSystem<LevelSystem>();
         }
 
         protected override void OnDeath()
@@ -64,5 +70,43 @@ namespace CookApps.Game
 
             _agentAttackAbility.DeInitialize();
         }
+
+        #region ·¹º§¾÷ & °æÇèÄ¡ È¹µæ
+        internal int GetLevel()
+        {
+            return _template.Level;
+        }
+
+        internal int GetExp()
+        {
+            return _template.EXP;
+        }
+
+        internal float GetNeedExp()
+        {
+            return _levelSystem.GetNeedExp(this);
+        }
+
+        internal int GainEXP(int exp)
+        {
+            _template.EXP += exp;
+
+            return _template.EXP;
+        }
+
+        internal int LevelUp(int RemainingExp)
+        {
+            _template.Level++;
+            _template.EXP = RemainingExp;
+
+            return template.Level;
+        }
+
+        internal void ClearExpLevel()
+        {
+            _template.EXP = 0;
+            _template.Level = 1;
+        }
+        #endregion
     }
 }

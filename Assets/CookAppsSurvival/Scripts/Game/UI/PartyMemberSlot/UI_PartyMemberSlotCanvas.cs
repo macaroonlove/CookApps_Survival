@@ -7,12 +7,12 @@ namespace CookApps.Game
     public class UI_PartyMemberSlotCanvas : MonoBehaviour
     {
         [SerializeField] private GameObject item;
-        public void Initialize(List<AgentTemplate> templates)
+        public void Initialize(List<PartyUnit> partyUnits)
         {
-            foreach(var template in templates)
+            foreach(var unit in partyUnits)
             {
                 var item = Instantiate(this.item, transform).GetComponent<UI_PartyMemberSlotItem>();
-                item.Initialize(template);
+                item.Initialize(unit);
             }
         }
     }

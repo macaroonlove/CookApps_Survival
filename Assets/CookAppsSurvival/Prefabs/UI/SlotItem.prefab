@@ -1092,3 +1092,4 @@ MonoBehaviour:
   text_Level: {fileID: 3649786190393430389}
   text_Name: {fileID: 924059842506078429}
   text_ATK: {fileID: 1688778586615556604}
+  slider_Exp: {fileID: 6930038748572264817}

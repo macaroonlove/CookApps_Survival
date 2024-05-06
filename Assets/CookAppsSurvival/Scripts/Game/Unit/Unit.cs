@@ -14,18 +14,25 @@ namespace CookApps.Game
     [RequireComponent(typeof(MoveAbility))]
     [RequireComponent(typeof(HealthAbility))]
     [RequireComponent(typeof(AbnormalStatusAbility))]
+    [RequireComponent(typeof(StatisticsAbility))]
     public abstract class Unit : MonoBehaviour
     {
         protected UnitAnimationController _animationController;
         protected MoveAbility _moveAbility;
         protected HealthAbility _healthAbility;
         protected AbnormalStatusAbility _abnormalStatusAbility;
+        protected StatisticsAbility _statisticsAbility;
 
         public UnitAnimationController animationController => _animationController;
         public MoveAbility moveAbility => _moveAbility;
         public HealthAbility healthAbility => _healthAbility;
         public AbnormalStatusAbility abnormalStatusAbility => _abnormalStatusAbility;
+        public StatisticsAbility statisticsAbility => _statisticsAbility;
 
+        /// <summary>
+        /// 유닛의 고유번호
+        /// </summary>
+        public abstract int id { get; }
 
         /// <summary>
         /// 순수 공격력
@@ -74,10 +81,16 @@ namespace CookApps.Game
                 TryGetComponent(out _abnormalStatusAbility);
             }
 
+            if (_statisticsAbility == null)
+            {
+                TryGetComponent(out _statisticsAbility);
+            }
+
             _animationController.Initialze(this);
             _moveAbility.Initialize(this);
             _healthAbility.Initialize(this);
             _abnormalStatusAbility.Initialize(this);
+            _statisticsAbility.Initialize(this);
 
             _healthAbility.onDeath += OnDeath;
         }
@@ -96,6 +109,7 @@ namespace CookApps.Game
             _moveAbility.DeInitialize();
             _healthAbility.DeInitialize();
             _abnormalStatusAbility.DeInitialize();
+            _statisticsAbility.DeInitialize();
 
             _healthAbility.onDeath -= OnDeath;
         }

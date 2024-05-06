@@ -61,7 +61,7 @@ namespace CookApps.Game
 
         internal void DeInitialize()
         {
-
+            _agent.enabled = false;
         }
 
         void NewTarget(PartyUnit mainUnit)

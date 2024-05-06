@@ -53,7 +53,7 @@ namespace CookApps.Game
         {
             int amount;
             float typeValue = 0f;
-            if (healType == EPercentageType.ATK) typeValue = partyUnit.pureATK;
+            if (healType == EPercentageType.ATK) typeValue = partyUnit.agentAttackAbility.finalATK;
             else if (healType == EPercentageType.MaxHP) typeValue = partyUnit.healthAbility.maxHp;
 
             amount = (int)(typeValue * damageAmountPer);

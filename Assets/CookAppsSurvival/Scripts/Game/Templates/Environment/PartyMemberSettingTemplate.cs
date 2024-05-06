@@ -7,10 +7,10 @@ namespace CookApps.Game
     /// <summary>
     /// 파티 설정
     /// </summary>
-    [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/PartySetting", fileName = "PartySetting", order = 0)]
+    [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/Environment/PartySetting", fileName = "PartySetting", order = 0)]
     public class PartySettingTemplate : ScriptableObject
     {
-        [Header("파티멤버 ")]
+        [Header("파티멤버")]
         public List<AgentTemplate> partyMembers = new List<AgentTemplate>();
 
         [Header("유닛 부활 대기시간")]

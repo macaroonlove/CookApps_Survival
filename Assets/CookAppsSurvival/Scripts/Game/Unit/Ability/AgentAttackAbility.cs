@@ -18,7 +18,7 @@ namespace CookApps.Game
         /// <summary>
         /// 최종 공격 간격
         /// </summary>
-        protected override float finalAttackTerm
+        internal override float finalAttackTerm
         {
             get
             {
@@ -36,7 +36,7 @@ namespace CookApps.Game
         /// <summary>
         /// 최종 공격거리
         /// </summary>
-        protected override float finalAttackDistance
+        internal override float finalAttackDistance
         {
             get
             {
@@ -46,6 +46,24 @@ namespace CookApps.Game
                 final += 0.1f;
 
                 final = Mathf.Max(final, 0);
+
+                return final;
+            }
+        }
+
+        /// <summary>
+        /// 최종 공격력
+        /// </summary>
+        internal override int finalATK
+        {
+            get
+            {
+                int final = _pureATK;
+
+                // 레벨로 인한 공격력 상승 (임의로 +10씩)
+                int level = _partyUnit.GetLevel();
+
+                final += (level - 1) * 10;
 
                 return final;
             }
@@ -119,7 +137,7 @@ namespace CookApps.Game
             _partyUnit.animationController.Attack();
 
             // 유닛한테 데미지 주기
-            attackTarget.healthAbility.Damaged(_pureATK);
+            attackTarget.healthAbility.Damaged(_pureATK, _partyUnit.id);
         }
 
         private void ExcuteSkill()

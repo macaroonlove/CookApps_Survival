@@ -47,7 +47,7 @@ namespace CookApps.Game
                 _partyUnits.Add(partyUnit);
             }
 
-            ui_PartyMemberSlot.Initialize(template.partyMembers);
+            ui_PartyMemberSlot.Initialize(_partyUnits);
 
             deathAnimWaitForSeconds = new WaitForSeconds(template.deathAnimTime);
             respawnWaitForSeconds = new WaitForSeconds(template.respawnTime - template.deathAnimTime);
@@ -110,6 +110,11 @@ namespace CookApps.Game
             Vector3 centerPosition = sumPosition / _partyUnits.Count;
 
             return centerPosition;
+        }
+
+        internal List<PartyUnit> GetAllMembers()
+        {
+            return _partyUnits;
         }
 
         /// <summary>

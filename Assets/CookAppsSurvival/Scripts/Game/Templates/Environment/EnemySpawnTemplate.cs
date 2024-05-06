@@ -7,7 +7,7 @@ namespace CookApps.Game
     /// <summary>
     /// 몬스터를 생성하는데 필요한 요소 템플릿
     /// </summary>
-    [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/EnemySpawn", fileName = "EnemySpawn", order = 0)]
+    [CreateAssetMenu(menuName = "CookAppsSurvival/Templates/Environment/EnemySpawn", fileName = "EnemySpawn", order = 0)]
     public class EnemySpawnTemplate : ScriptableObject
     {
         [Header("생성 주기")]

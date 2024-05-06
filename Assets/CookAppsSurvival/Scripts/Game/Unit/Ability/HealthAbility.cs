@@ -20,16 +20,24 @@ namespace CookApps.Game
 
         internal event UnityAction<int> onChangedHealth;
         internal event UnityAction onDeath;
+        internal event UnityAction<int, int> onDamage;
 
         internal void Initialize(Unit unit)
         {
             _unit = unit;
 
-            float finalMapHp = unit.pureMaxHp;
+            float finalMaxHp = unit.pureMaxHp;
 
             // 체력 증감 로직 추후 추가
+            // 레벨에 의한 증가
+            if (_unit is PartyUnit partyUnit)
+            {
+                int level = partyUnit.GetLevel();
 
-            _maxHp = (int)finalMapHp;
+                finalMaxHp += (level - 1) * 10;
+            }
+            
+            _maxHp = (int)finalMaxHp;
 
             SetHp(_maxHp);
         }
@@ -39,17 +47,20 @@ namespace CookApps.Game
 
         }
 
-        internal bool Damaged(int damage)
+        internal bool Damaged(int damage, int id)
         {
             //죽었으면 무시
             if (!IsAlive) return false;
 
             var lostHealth = damage;
 
+            // TODO: 데미지 감소 아이템 로직 추가
+
             //잃을 HP 가 있을 때
             if (lostHealth > 0)
             {
                 SetHp(_currentHp - lostHealth);
+                onDamage?.Invoke(id, lostHealth);
 
                 return true;
             }

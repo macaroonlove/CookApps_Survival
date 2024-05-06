@@ -2,6 +2,7 @@ using FrameWork.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CookApps.Game
 {
@@ -11,6 +12,8 @@ namespace CookApps.Game
     public class EnemySystem : MonoBehaviour, ISubSystem
     {
         [SerializeField, ReadOnly] private List<EnemyUnit> _enemies = new List<EnemyUnit>();
+
+        internal event UnityAction<EnemyUnit> onDieEnemy;
 
         public void Initialize()
         {
@@ -34,6 +37,8 @@ namespace CookApps.Game
         internal void Remove(EnemyUnit instance)
         {
             _enemies.Remove(instance);
+
+            onDieEnemy?.Invoke(instance);
         }
 
         /// <summary>

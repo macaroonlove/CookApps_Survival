@@ -13,16 +13,21 @@ namespace CookApps.Game
         protected int _pureATK;
         protected float _pureAttackTerm;
         protected float _pureAttackDistance;
-        
+
         /// <summary>
         /// 최종 공격 간격
         /// </summary>
-        protected abstract float finalAttackTerm { get; }
+        internal abstract float finalAttackTerm { get; }
 
         /// <summary>
         /// 최종 공격거리
         /// </summary>
-        protected abstract float finalAttackDistance { get; }
+        internal abstract float finalAttackDistance { get; }
+
+        /// <summary>
+        /// 최종 공격력
+        /// </summary>
+        internal abstract int finalATK { get; }
 
         protected virtual void Update()
         {

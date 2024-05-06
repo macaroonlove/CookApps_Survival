@@ -19,6 +19,10 @@ namespace CookApps.Game
         public EnemyAttackAbility enemyAttackAbility => _enemyAttackAbility;
         public PatrolAbility patrolAbility => _patrolAbility;
 
+        public int dropExp => _template.dropExp;
+
+        public override int id => _template.id;
+
         public override int pureATK => _template.ATK;
 
         public override int pureMaxHp => _template.maxHp;
@@ -34,6 +38,8 @@ namespace CookApps.Game
         public float patrolRadius => _template.patrolRadius;
 
         public float patrolWaitTime => _template.patrolWaitTime;
+
+        
 
         public void Initialize()
         {

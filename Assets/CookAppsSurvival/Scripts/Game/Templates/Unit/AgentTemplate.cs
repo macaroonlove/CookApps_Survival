@@ -1,3 +1,4 @@
+using FrameWork.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,10 @@ namespace CookApps.Game
         [Header("기본 정보")]
         public string displayName;
         public EJob job;
+
+        [Header("레벨 정보")]
+        [ReadOnly] public int Level;
+        [ReadOnly] public int EXP;
 
         [Header("리소스 정보")]
         public Sprite face;
