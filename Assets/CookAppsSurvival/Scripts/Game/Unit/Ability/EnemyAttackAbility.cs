@@ -65,6 +65,8 @@ namespace CookApps.Game
             isAttackAble = true;
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
+
+            base.Initialize();
         }
 
         internal void DeInitialize()
@@ -87,7 +89,7 @@ namespace CookApps.Game
         private void ExcuteAttack()
         {
             // 목표로 이동하는 타겟을 공격 타겟으로 설정
-            var attackTarget = _enemyUnit.moveAbility.target;
+            attackTarget = _enemyUnit.moveAbility.target;
 
             // 공격 범위 안에 타겟이 들어왔는지
             bool isInRange = IsInRange(attackTarget);
@@ -95,7 +97,7 @@ namespace CookApps.Game
             if (attackTarget != null && isInRange)
             {
                 // 공격
-                Attack(attackTarget);
+                AttackAnimation(attackTarget);
             }
         }
         #endregion

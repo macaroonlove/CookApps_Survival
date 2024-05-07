@@ -14,9 +14,13 @@ namespace CookApps.Game
         [SerializeField, ReadOnly] protected bool isAttackAble;
         [SerializeField, ReadOnly] protected float cooldownTime = 0;
 
+        protected Unit attackTarget;
         protected int _pureATK;
         protected float _pureAttackTerm;
         protected float _pureAttackDistance;
+
+        private AttackEventHandler _attackEventHandler;
+        private bool _isEventAttack;
 
         public abstract Unit unit { get; }
 
@@ -36,6 +40,25 @@ namespace CookApps.Game
         /// </summary>
         internal abstract int finalATK { get; }
         #endregion
+
+        internal void Initialize()
+        {
+            _attackEventHandler = GetComponentInChildren<AttackEventHandler>();
+            if (_attackEventHandler != null)
+            {
+                _attackEventHandler.onAttack += OnAttackEvent;
+                _isEventAttack = true;
+            }
+        }
+
+        internal virtual void DeInitialize()
+        {
+            if (_attackEventHandler != null)
+            {
+                _attackEventHandler.onAttack -= OnAttackEvent;
+                _isEventAttack = false;
+            }
+        }
 
         protected virtual void Update()
         {
@@ -58,11 +81,24 @@ namespace CookApps.Game
 
         protected abstract bool Action();
 
-        protected virtual void Attack(Unit attackTarget)
+        protected virtual void AttackAnimation(Unit attackTarget)
         {
             // 공격 모션
             unit.animationController.Attack();
 
+            if (!_isEventAttack)
+            {
+                Attack(attackTarget);
+            }            
+        }
+
+        private void OnAttackEvent()
+        {
+            Attack(attackTarget);
+        }
+
+        private void Attack(Unit attackTarget)
+        {
             // 투사체 공격일 경우
             if (isProjectileAttack)
             {

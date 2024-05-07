@@ -91,11 +91,14 @@ namespace CookApps.Game
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
+
+            base.Initialize();
         }
 
-        internal void DeInitialize()
+        internal override void DeInitialize()
         {
             isAttackAble = false;
+            base.DeInitialize();
         }
 
         protected override bool Action()
@@ -123,7 +126,7 @@ namespace CookApps.Game
         private void ExcuteAttack()
         {
             // 메인 유닛이 목표로 이동하는 타겟을 공격 타겟으로 설정
-            Unit attackTarget = _partySystem.mainUnit.moveAbility.target;
+            attackTarget = _partySystem.mainUnit.moveAbility.target;
             _partyUnit.moveAbility.NewAttackTarget(attackTarget);
 
             // 공격 범위 안에 타겟이 들어왔는지
@@ -133,7 +136,7 @@ namespace CookApps.Game
             if (attackTarget != null && isInRange)
             {
                 // 공격
-                Attack(attackTarget);
+                AttackAnimation(attackTarget);
             }
         }
         #endregion
