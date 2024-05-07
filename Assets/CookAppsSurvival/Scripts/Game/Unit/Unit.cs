@@ -18,6 +18,8 @@ namespace CookApps.Game
     [RequireComponent(typeof(BuffAbility))]
     public abstract class Unit : MonoBehaviour
     {
+        [SerializeField] private Transform _projectileHitPoint;
+
         protected UnitAnimationController _animationController;
         protected MoveAbility _moveAbility;
         protected HealthAbility _healthAbility;
@@ -31,6 +33,8 @@ namespace CookApps.Game
         public AbnormalStatusAbility abnormalStatusAbility => _abnormalStatusAbility;
         public StatisticsAbility statisticsAbility => _statisticsAbility;
         public BuffAbility buffAbility => _buffAbility;
+
+        public Transform projectileHitPoint => _projectileHitPoint;
 
         /// <summary>
         /// 유닛의 고유번호

@@ -7,12 +7,11 @@ namespace CookApps.Game
     public class EnemyAttackAbility : AttackAbility
     {
         private EnemyUnit _enemyUnit;
-
         private PartySystem _partySystem;
 
-        /// <summary>
-        /// 최종 공격 간격
-        /// </summary>
+        public override Unit unit => _enemyUnit;
+
+        #region 스탯
         internal override float finalAttackTerm
         {
             get
@@ -28,9 +27,6 @@ namespace CookApps.Game
             }
         }
 
-        /// <summary>
-        /// 최종 공격거리
-        /// </summary>
         internal override float finalAttackDistance
         {
             get
@@ -38,7 +34,7 @@ namespace CookApps.Game
                 float final = _pureAttackDistance;
 
                 //일부 보정
-                final -= 0.1f;
+                final += 0.3f;
 
                 final = Mathf.Max(final, 0);
 
@@ -52,11 +48,10 @@ namespace CookApps.Game
             {
                 int final = _pureATK;
 
-                
-
                 return final;
             }
         }
+        #endregion
 
         internal void Initialize(EnemyUnit enemyUnit)
         {
@@ -83,23 +78,26 @@ namespace CookApps.Game
             if (_enemyUnit.moveAbility.isPatrol) return false;
             if (_enemyUnit.abnormalStatusAbility.UnableToAttackEffects.Count > 0) return false;
 
-            var attackTarget = _enemyUnit.moveAbility.target;
-
-            if (attackTarget != null)
-            {
-                Attack(attackTarget);
-            }
+            ExcuteAttack();
 
             return true;
         }
 
-        private void Attack(Unit attackTarget)
+        #region 기본 공격
+        private void ExcuteAttack()
         {
-            // 공격 모션
-            _enemyUnit.animationController.Attack();
+            // 목표로 이동하는 타겟을 공격 타겟으로 설정
+            var attackTarget = _enemyUnit.moveAbility.target;
 
-            // 유닛한테 데미지 주기
-            attackTarget.healthAbility.Damaged(_pureATK, _enemyUnit.id);
+            // 공격 범위 안에 타겟이 들어왔는지
+            bool isInRange = IsInRange(attackTarget);
+
+            if (attackTarget != null && isInRange)
+            {
+                // 공격
+                Attack(attackTarget);
+            }
         }
+        #endregion
     }
 }

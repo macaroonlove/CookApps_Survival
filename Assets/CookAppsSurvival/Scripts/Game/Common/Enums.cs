@@ -33,10 +33,6 @@ namespace CookApps.Game
     public enum EEnemyTarget
     {
         /// <summary>
-        /// 기존 적군
-        /// </summary>
-        ExistingEnemy,
-        /// <summary>
         /// 범위 내 적군 하나
         /// </summary>
         OneEnemyInRange,

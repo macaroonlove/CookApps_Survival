@@ -7,17 +7,15 @@ namespace CookApps.Game
 {
     public class AgentAttackAbility : AttackAbility
     {
-        [SerializeField, ReadOnly] private Unit attackTarget;
         [SerializeField, ReadOnly] private float skillCooldownTime = 0;
 
         private PartyUnit _partyUnit;
-
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
 
-        /// <summary>
-        /// 최종 공격 간격
-        /// </summary>
+        public override Unit unit => _partyUnit;
+
+        #region 스탯
         internal override float finalAttackTerm
         {
             get
@@ -40,9 +38,6 @@ namespace CookApps.Game
             }
         }
 
-        /// <summary>
-        /// 최종 공격거리
-        /// </summary>
         internal override float finalAttackDistance
         {
             get
@@ -50,7 +45,7 @@ namespace CookApps.Game
                 float final = _pureAttackDistance;
 
                 //일부 보정
-                final += 0.1f;
+                final += 0.3f;
 
                 final = Mathf.Max(final, 0);
 
@@ -58,9 +53,6 @@ namespace CookApps.Game
             }
         }
 
-        /// <summary>
-        /// 최종 공격력
-        /// </summary>
         internal override int finalATK
         {
             get
@@ -84,6 +76,7 @@ namespace CookApps.Game
                 return (int)final;
             }
         }
+        #endregion
 
         internal void Initialize(PartyUnit partyUnit)
         {
@@ -92,6 +85,7 @@ namespace CookApps.Game
             _pureATK = partyUnit.pureATK;
             _pureAttackTerm = partyUnit.pureAttackTerm;
             _pureAttackDistance = partyUnit.pureAttackRange;
+
             cooldownTime = finalAttackTerm;
             isAttackAble = true;
 
@@ -104,17 +98,6 @@ namespace CookApps.Game
             isAttackAble = false;
         }
 
-        private bool IsInRange(Unit attackTarget)
-        {
-            float sqrDistance = (_partyUnit.transform.position - attackTarget.transform.position).sqrMagnitude;
-
-            return sqrDistance <= finalAttackDistance * finalAttackDistance;
-
-            //float distance = Vector3.Distance(_partyUnit.transform.position, attackTarget.transform.position);
-
-            //return distance <= finalAttackDistance;
-        }
-
         protected override bool Action()
         {
             skillCooldownTime -= Time.deltaTime;
@@ -124,38 +107,38 @@ namespace CookApps.Game
 
             if (skillCooldownTime > 0)
             {
-                AttackImpact();
+                // 기본 공격
+                ExcuteAttack();
             }
             else
             {
+                // 스킬 공격
                 ExcuteSkill();
             }
             
             return true;
         }
 
-        private void AttackImpact()
+        #region 기본 공격
+        private void ExcuteAttack()
         {
-            attackTarget = _partySystem.mainUnit.moveAbility.target;
+            // 메인 유닛이 목표로 이동하는 타겟을 공격 타겟으로 설정
+            Unit attackTarget = _partySystem.mainUnit.moveAbility.target;
             _partyUnit.moveAbility.NewAttackTarget(attackTarget);
 
-            var isInRange = IsInRange(attackTarget);
+            // 공격 범위 안에 타겟이 들어왔는지
+            bool isInRange = IsInRange(attackTarget);
 
+            // 공격할 타겟이 있고, 범위 안에 있다면
             if (attackTarget != null && isInRange)
             {
+                // 공격
                 Attack(attackTarget);
             }
         }
+        #endregion
 
-        private void Attack(Unit attackTarget)
-        {
-            // 공격 모션
-            _partyUnit.animationController.Attack();
-
-            // 유닛한테 데미지 주기
-            attackTarget.healthAbility.Damaged(_pureATK, _partyUnit.id);
-        }
-
+        #region 스킬 공격
         private void ExcuteSkill()
         {
             // 스킬 모션
@@ -167,17 +150,16 @@ namespace CookApps.Game
             }
             skillCooldownTime = _partyUnit.skillTemplate.cooldownTime;
         }
+        #endregion
 
 
+        #region 유틸리티 메서드
         internal List<EnemyUnit> FindAttackTargetEnemies(EEnemyTarget targetCondition, float radius, int maxCount)
         {
             List<EnemyUnit> enemies = new List<EnemyUnit>();
 
             switch (targetCondition)
             {
-                case EEnemyTarget.ExistingEnemy:
-                    enemies.Add(attackTarget as EnemyUnit);
-                    break;
                 case EEnemyTarget.OneEnemyInRange:
                     enemies.Add(_enemySystem.FindNearestEnemy(_partyUnit.transform.position));
                     break;
@@ -221,5 +203,6 @@ namespace CookApps.Game
 
             return members;
         }
+        #endregion
     }
 }

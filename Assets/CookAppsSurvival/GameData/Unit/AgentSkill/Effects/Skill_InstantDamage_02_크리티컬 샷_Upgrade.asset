@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cfbadde3ed7c74a8cf6cdd724c96b1, type: 3}
   m_Name: "Skill_InstantDamage_02_\uD06C\uB9AC\uD2F0\uCEEC \uC0F7_Upgrade"
   m_EditorClassIdentifier: 
-  damageTarget: 2
+  damageTarget: 1
   radius: 4
   numberOfEnemies: 3
   damageType: 0

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &109672654806491487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8912930932220881053}
+  m_Layer: 0
+  m_Name: ProjectileHitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8912930932220881053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109672654806491487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 307371845863071009}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &309117713903972267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,9 +89,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4000010376655498, guid: 978fa2fb617654f5eaeff9da6fc7d116,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8912930932220881053}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+--- !u!4 &307371845863071009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000010376655498, guid: 978fa2fb617654f5eaeff9da6fc7d116,
+    type: 3}
+  m_PrefabInstance: {fileID: 309117713903972267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &307371848963195835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116,
@@ -86,6 +127,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e4f2b5f0ecc6b2e4ab9116d635c3d4ff,
         type: 2}
+    - target: {fileID: 2788141932363522448, guid: 36bddbb01219b91438d91f10ed6e5cb0,
+        type: 3}
+      propertyPath: _projectileHitPoint
+      value: 
+      objectReference: {fileID: 8912930932220881053}
     - target: {fileID: 4873233286986159735, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}
       propertyPath: m_Name
