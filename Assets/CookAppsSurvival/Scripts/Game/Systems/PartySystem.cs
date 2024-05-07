@@ -20,7 +20,7 @@ namespace CookApps.Game
 
         internal UnityAction<PartyUnit> onUnitRevival;
         internal UnityAction<PartyUnit> onUnitDie;
-        internal UnityAction onGameEnd;
+        internal UnityAction onDefault;
     
         internal PartyUnit mainUnit
         {
@@ -76,7 +76,18 @@ namespace CookApps.Game
             if (_partyUnits.Count <= 0)
             {
                 // 게임 종료
-                onGameEnd?.Invoke();
+                onDefault?.Invoke();
+
+                // 유닛 비활성화
+                foreach(var partyUnit in _partyUnits)
+                {
+                    partyUnit.DeInitialize();
+                }
+
+                // 스폰, 부활 시스템 꺼버리기
+                BattleManager.Instance.GetSubSystem<SpawnSystem>().StopAutomaticSpawn();
+                StopAllCoroutines();
+                return;
             }
 
             StartCoroutine(CoUnitDieRevival(unit));

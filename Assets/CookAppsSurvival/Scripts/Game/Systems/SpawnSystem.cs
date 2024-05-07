@@ -127,8 +127,7 @@ namespace CookApps.Game
 
         internal void DisableAllEnemy()
         {
-            // 자동 생성 멈추기
-            StopCoroutine(coroutine);
+            StopAutomaticSpawn();
 
             var enemies = new List<EnemyUnit>(_enemySystem.AllEnemies());
 
@@ -141,6 +140,12 @@ namespace CookApps.Game
                     DespawnEnemy(enemies[i]);
                 }
             }
+        }
+
+        internal void StopAutomaticSpawn()
+        {
+            // 자동 생성 멈추기
+            StopCoroutine(coroutine);
         }
     }
 }

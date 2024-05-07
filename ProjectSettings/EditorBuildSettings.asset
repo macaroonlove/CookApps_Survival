@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/CookAppsSurvival/Scenes/Stage_1_\uCD08\uC6D0.unity"
     guid: a9bb8a4ff7fb342449ba61a05588fe7f
+  - enabled: 1
+    path: "Assets/CookAppsSurvival/Scenes/Stage_2_\uC232.unity"
+    guid: 8f12772e4bb38b4499189fc8be735e5a
+  - enabled: 1
+    path: "Assets/CookAppsSurvival/Scenes/Stage_3_\uB3C5\uC232.unity"
+    guid: aba25a48475f23b4ea5611fb9d0ea5fd
+  - enabled: 1
+    path: "Assets/CookAppsSurvival/Scenes/Stage_4_\uC0AC\uB9C9.unity"
+    guid: ce42b90a530b95546801cdf60671c4c8
+  - enabled: 1
+    path: "Assets/CookAppsSurvival/Scenes/Stage_5_\uC9C0\uC625.unity"
+    guid: 85c46941e79c97246a9e3054bfb9087c
   m_configObjects: {}
