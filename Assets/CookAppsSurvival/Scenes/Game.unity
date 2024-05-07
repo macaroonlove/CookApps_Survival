@@ -1446,7 +1446,7 @@ PrefabInstance:
     - target: {fileID: 4290776998064740050, guid: 22a7f14116e634d4faf7728e5e97a03a,
         type: 3}
       propertyPath: m_fontSize
-      value: 28
+      value: 27.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3911,6 +3911,50 @@ MonoBehaviour:
   button_Buy: {fileID: 1320527128}
   skillItem: {fileID: 11400000, guid: 8c69b4dcda6cf9b4ea736fc6513ab9d4, type: 2}
   soldOut: {fileID: 1542209231}
+--- !u!1 &1168950410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168950411}
+  - component: {fileID: 1168950412}
+  m_Layer: 0
+  m_Name: PoolSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168950411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168950410}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1969154820}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1168950412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168950410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7c4a0e5d639e54c9de2a28279f5c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1169845776 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7119612187827666776, guid: 22a7f14116e634d4faf7728e5e97a03a,
@@ -5422,6 +5466,7 @@ Transform:
   - {fileID: 968907649}
   - {fileID: 521777312}
   - {fileID: 1846203496}
+  - {fileID: 1168950411}
   m_Father: {fileID: 1777357455}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

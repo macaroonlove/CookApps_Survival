@@ -74,7 +74,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 6052733648284394623, guid: 1bec491647cbaf14ebd66e77f03b4361,
+      objectReference: {fileID: 6052733648284394623, guid: cc6dd576de59a1a4ca35d485e5d7a8e7,
         type: 3}
     - target: {fileID: -8847540027092538056, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}

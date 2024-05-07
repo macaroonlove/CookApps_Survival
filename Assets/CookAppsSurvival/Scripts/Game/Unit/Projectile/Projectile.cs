@@ -70,7 +70,7 @@ namespace CookApps.Game
 
         private void DeSpawn()
         {
-            Destroy(gameObject);
+            _attackAbility.DeSpawnProjectile(gameObject);
             isInit = false;
         }
     }

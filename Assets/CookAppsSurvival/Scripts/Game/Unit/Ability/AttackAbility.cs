@@ -14,7 +14,8 @@ namespace CookApps.Game
         [SerializeField, ReadOnly] protected bool isAttackAble;
         [SerializeField, ReadOnly] protected float cooldownTime = 0;
 
-        protected Unit attackTarget;
+        protected Unit _attackTarget;
+        protected PoolSystem _poolSystem;
         protected int _pureATK;
         protected float _pureAttackTerm;
         protected float _pureAttackDistance;
@@ -43,6 +44,8 @@ namespace CookApps.Game
 
         internal void Initialize()
         {
+            _poolSystem = BattleManager.Instance.GetSubSystem<PoolSystem>();
+
             _attackEventHandler = GetComponentInChildren<AttackEventHandler>();
             if (_attackEventHandler != null)
             {
@@ -94,7 +97,7 @@ namespace CookApps.Game
 
         private void OnAttackEvent()
         {
-            Attack(attackTarget);
+            Attack(_attackTarget);
         }
 
         private void Attack(Unit attackTarget)
@@ -103,7 +106,8 @@ namespace CookApps.Game
             if (isProjectileAttack)
             {
                 // 투사체 생성
-                var projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity).GetComponent<Projectile>();
+                var projectile = _poolSystem.Spawn(projectilePrefab).GetComponent<Projectile>();
+                projectile.transform.SetPositionAndRotation(projectileSpawnPoint.position, Quaternion.identity);
                 projectile.Initialize(this, attackTarget);
             }
             // 즉시 공격일 경우
@@ -124,6 +128,11 @@ namespace CookApps.Game
             float distance = Vector3.Distance(unit.transform.position, attackTarget.transform.position);
 
             return distance <= finalAttackDistance;
+        }
+
+        internal void DeSpawnProjectile(GameObject obj)
+        {
+            _poolSystem.DeSpawn(obj);
         }
     }
 }

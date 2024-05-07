@@ -126,17 +126,17 @@ namespace CookApps.Game
         private void ExcuteAttack()
         {
             // 메인 유닛이 목표로 이동하는 타겟을 공격 타겟으로 설정
-            attackTarget = _partySystem.mainUnit.moveAbility.target;
-            _partyUnit.moveAbility.NewAttackTarget(attackTarget);
+            _attackTarget = _partySystem.mainUnit.moveAbility.target;
+            _partyUnit.moveAbility.NewAttackTarget(_attackTarget);
 
             // 공격 범위 안에 타겟이 들어왔는지
-            bool isInRange = IsInRange(attackTarget);
+            bool isInRange = IsInRange(_attackTarget);
 
             // 공격할 타겟이 있고, 범위 안에 있다면
-            if (attackTarget != null && isInRange)
+            if (_attackTarget != null && isInRange)
             {
                 // 공격
-                AttackAnimation(attackTarget);
+                AttackAnimation(_attackTarget);
             }
         }
         #endregion
