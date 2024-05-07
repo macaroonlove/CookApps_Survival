@@ -11,7 +11,6 @@ namespace CookApps.Game
     /// </summary>
     public class PartySystem : MonoBehaviour, ISubSystem
     {
-        [SerializeField] private PartySettingTemplate template;
         [SerializeField] private UI_PartyMemberSlotCanvas ui_PartyMemberSlot;
 
         private List<PartyUnit> _partyUnits = new List<PartyUnit>();
@@ -35,11 +34,11 @@ namespace CookApps.Game
             }
         }
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
-            for(int i = 0; i < template.partyMembers.Count; i++)
+            for(int i = 0; i < stage.partySettingTemplate.partyMembers.Count; i++)
             {
-                var member = template.partyMembers[i];
+                var member = stage.partySettingTemplate.partyMembers[i];
 
                 var unit = Instantiate(member.prefab, transform.GetChild(0).position + Vector3.right * i, Quaternion.identity, transform.GetChild(0));
                 var partyUnit = unit.GetComponent<PartyUnit>();
@@ -49,8 +48,8 @@ namespace CookApps.Game
 
             ui_PartyMemberSlot.Initialize(_partyUnits);
 
-            deathAnimWaitForSeconds = new WaitForSeconds(template.deathAnimTime);
-            respawnWaitForSeconds = new WaitForSeconds(template.respawnTime - template.deathAnimTime);
+            deathAnimWaitForSeconds = new WaitForSeconds(stage.partySettingTemplate.deathAnimTime);
+            respawnWaitForSeconds = new WaitForSeconds(stage.partySettingTemplate.respawnTime - stage.partySettingTemplate.deathAnimTime);
 
             StartCoroutine(CoInitialize());
         }

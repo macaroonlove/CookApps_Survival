@@ -25,6 +25,7 @@ namespace CookApps.Game
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
         private SpawnSystem _spawnSystem;
+        private BossSystem _bossSystem;
         
 
         public bool isMove => _isMove;
@@ -74,15 +75,27 @@ namespace CookApps.Game
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
             _spawnSystem = BattleManager.Instance.GetSubSystem<SpawnSystem>();
+            _bossSystem = BattleManager.Instance.GetSubSystem<BossSystem>();
 
             _partySystem.onUnitRevival += NewTarget;
             _partySystem.onUnitDie += NewTarget;
             _spawnSystem.onCompleteSpawn += NewTarget;
+            _bossSystem.onVictory += Victory;
         }
 
         internal void DeInitialize()
         {
-            _agent.enabled = false;
+            _partySystem.onUnitRevival -= NewTarget;
+            _partySystem.onUnitDie -= NewTarget;
+            _spawnSystem.onCompleteSpawn -= NewTarget;
+            _bossSystem.onVictory -= Victory;
+        }
+
+        void Victory()
+        {
+            this.enabled = false;
+
+            _unit = null;
         }
 
         void NewTarget(PartyUnit mainUnit)
@@ -102,7 +115,16 @@ namespace CookApps.Game
 
         internal void NewAttackTarget(Unit target)
         {
-            _targetPos = target.transform;
+            if (target != null)
+            {
+                _targetPos = target.transform;
+            }
+        }
+
+        internal void FocusBossTarget(Unit boss)
+        {
+            _targetPos = boss.transform;
+            _target = boss;
         }
 
         internal void NewDestination(Vector3 position)
@@ -112,7 +134,6 @@ namespace CookApps.Game
 
         internal void SetIsPatrol(bool isPatrol)
         {
-            //_agent.isStopped = isPatrol;
             _isPatrol = isPatrol;
         }
 
@@ -130,7 +151,10 @@ namespace CookApps.Game
                 {
                     // 자신을 기준으로 가장 가까운 적을 찾기
                     _target = _enemySystem.FindNearestEnemy(_unit.transform.position);
-                    _targetPos = _target.transform;
+                    if (_target != null)
+                    {
+                        _targetPos = _target.transform;
+                    }
                 }
                 else
                 {

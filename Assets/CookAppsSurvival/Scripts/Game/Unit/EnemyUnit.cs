@@ -11,8 +11,7 @@ namespace CookApps.Game
     [RequireComponent(typeof(PatrolAbility))]
     public class EnemyUnit : Unit
     {
-        [SerializeField] private EnemyTemplate _template;
-
+        protected EnemyTemplate _template;
         protected EnemyAttackAbility _enemyAttackAbility;
         protected PatrolAbility _patrolAbility;
 
@@ -41,13 +40,11 @@ namespace CookApps.Game
 
         public float patrolWaitTime => _template.patrolWaitTime;
 
-        
-
-        public void Initialize()
+        public void Initialize(EnemyTemplate template)
         {
-            base.Initialize();
+            _template = template;
 
-            //_template = template;
+            base.Initialize();            
 
             if (_enemyAttackAbility == null)
             {

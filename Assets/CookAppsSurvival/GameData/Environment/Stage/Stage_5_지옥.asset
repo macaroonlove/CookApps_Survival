@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c43f2e407e63c4b8d889c9f8054cc3, type: 3}
+  m_Name: "Stage_5_\uC9C0\uC625"
+  m_EditorClassIdentifier: 
+  sceneName: "Stage_5_\uC9C0\uC625"
+  normalEnemy: {fileID: 11400000, guid: 39cbd89923243f84ca15989165a4681d, type: 2}
+  bossEnemy: {fileID: 11400000, guid: f50c50aff9688cb43a13318a84cca823, type: 2}
+  killUntilBoss: 300
+  partySettingTemplate: {fileID: 11400000, guid: ecb87e965f4900e4589f75071f8eb066,
+    type: 2}
+  spawnTemplate: {fileID: 11400000, guid: a4d3968a46d9c8e4d8a115eecc538945, type: 2}

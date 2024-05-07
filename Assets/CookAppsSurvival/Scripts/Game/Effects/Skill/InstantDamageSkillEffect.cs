@@ -44,7 +44,7 @@ namespace CookApps.Game
             {
                 foreach (var enemy in enemies)
                 {
-                    if (!enemy.healthAbility.IsAlive) continue;
+                    if (enemy != null && !enemy.healthAbility.IsAlive) continue;
 
                     var damage = GetAmount(unit);
 

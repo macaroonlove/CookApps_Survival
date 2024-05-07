@@ -22,7 +22,7 @@ namespace CookApps.Game
         internal UnityAction onGainExp;
         internal UnityAction onLevelUp;
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();

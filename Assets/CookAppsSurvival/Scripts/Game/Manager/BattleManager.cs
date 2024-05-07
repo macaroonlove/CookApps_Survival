@@ -27,11 +27,11 @@ namespace CookApps.Game
             base.Awake();
         }
 
-        protected override void Initialize()
+        internal void InitializeStage(StageTemplate stage)
         {
             foreach (var system in _subSystems.Values)
             {
-                system.Initialize();
+                system.Initialize(stage);
             }
         }
 

@@ -15,7 +15,7 @@ namespace CookApps.Game
 
         internal event UnityAction<EnemyUnit> onDieEnemy;
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
             
         }
@@ -41,6 +41,7 @@ namespace CookApps.Game
             onDieEnemy?.Invoke(instance);
         }
 
+        #region 유틸리티 메서드
         /// <summary>
         /// 모든 적 반환
         /// </summary>
@@ -103,8 +104,6 @@ namespace CookApps.Game
 
             return enemies;
         }
-
-        
-
+        #endregion
     }
 }

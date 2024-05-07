@@ -16,7 +16,7 @@ namespace CookApps.Game
 
         internal UnityAction<int> onChangedGold;
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
             

@@ -17,21 +17,16 @@ MonoBehaviour:
     - a9bb8a4ff7fb342449ba61a05588fe7f
     - 
     - fa14bf0c0f3f4b8d8c9d9238f6d21dba
+    - 9a7a36a613e44209820d8fb015aa3dc3
     values:
     - goDatasByGlobalId:
         keys:
-        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1777357454-0
-        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1933340317-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-329131578-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-400143111-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-759762130-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-699339632-0
-        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1323915142-0
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1104080404-0
         values:
-        - iColor: 6
-          icon: 
-        - iColor: 4
-          icon: 
         - iColor: 0
           icon: Camera Icon
         - iColor: 0
@@ -40,10 +35,10 @@ MonoBehaviour:
           icon: Terrain Icon
         - iColor: 0
           icon: Light Icon
-        - iColor: 4
-          icon: 
+        - iColor: 7
+          icon: ReflectionProbe Icon
       goDatasByInstanceId:
-        keys: e0700000ea7000008070000090700000b8700000b0700000d8700000
+        keys: ca760000e27600008e750000a6750000ee750000e675000092760000008d0000188d0000c48b0000dc8b0000248c00001c8c0000c88c000052f6f5ff
         values:
         - iColor: 6
           icon: 
@@ -59,6 +54,28 @@ MonoBehaviour:
           icon: Light Icon
         - iColor: 4
           icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 2
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 2
+          icon: 
+        - iColor: 7
+          icon: ReflectionProbe Icon
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []
     - goDatasByGlobalId:
         keys: []
         values: []

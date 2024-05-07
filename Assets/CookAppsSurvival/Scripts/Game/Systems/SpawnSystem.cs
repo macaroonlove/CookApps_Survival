@@ -10,33 +10,32 @@ namespace CookApps.Game
     /// </summary>
     public class SpawnSystem : MonoBehaviour, ISubSystem
     {
-        [SerializeField] private GameObject _prefab;
-        [SerializeField] private EnemySpawnTemplate template;
-
         private Stack<EnemyUnit> _enemyUnits;
 
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
+        private Coroutine coroutine;
         private WaitForSeconds waitForSeconds;
-
-        private int _simultaneousMaxCnt = 1;
-        private float _spawnRadius = 1;
-        private int _size = 10;
+        
+        private int _simultaneousMaxCnt;
+        private float _spawnRadius;
+        private int _size;
 
         internal event UnityAction<PartyUnit> onCompleteSpawn;
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
 
-            waitForSeconds = new WaitForSeconds(template.spawnTime);
-            _simultaneousMaxCnt = template.simultaneousMaxCnt;
-            _spawnRadius = template.spawnRadius;
-            _size = template.poolSize;
+            waitForSeconds = new WaitForSeconds(stage.spawnTemplate.spawnTime);
 
-            InitPool();
-            StartCoroutine(AutomaticSpawn());
+            _simultaneousMaxCnt = stage.spawnTemplate.simultaneousMaxCnt;
+            _spawnRadius = stage.spawnTemplate.spawnRadius;
+            _size = stage.spawnTemplate.poolSize;
+            
+            InitPool(stage.normalEnemy);
+            coroutine = StartCoroutine(AutomaticSpawn(stage.normalEnemy));
         }
 
         public void Deinitialize()
@@ -48,19 +47,19 @@ namespace CookApps.Game
             _enemyUnits.Clear();
         }
 
-        private void InitPool()
+        private void InitPool(EnemyTemplate template)
         {
             _enemyUnits = new Stack<EnemyUnit>();
             
             for (int i = 0; i < _size; i++)
             {
-                EnemyUnit enemyUnit = Instantiate(_prefab, Vector3.zero, Quaternion.identity, transform).GetComponent<EnemyUnit>();
+                EnemyUnit enemyUnit = Instantiate(template.prefab, Vector3.zero, Quaternion.identity, transform).GetComponent<EnemyUnit>();
                 enemyUnit.gameObject.SetActive(false);
                 _enemyUnits.Push(enemyUnit);
             }
         }
 
-        private IEnumerator AutomaticSpawn()
+        private IEnumerator AutomaticSpawn(EnemyTemplate template)
         {
             while (true)
             {
@@ -68,7 +67,7 @@ namespace CookApps.Game
 
                 for (int i = 0; i < spawnCnt; i++)
                 {
-                    SpawnEnemy(_partySystem.mainUnit.transform.position);
+                    SpawnEnemy(template, _partySystem.mainUnit.transform.position);
                 }
 
                 yield return waitForSeconds;
@@ -78,9 +77,16 @@ namespace CookApps.Game
         /// <summary>
         /// 플레이어 위치를 기준으로 원을 그려 랜덤 위치 받아오기
         /// </summary>
-        private Vector3 GetRandomPos(Vector3 partyPos)
+        private Vector3 GetRandomPos(Vector3 partyPos, float newSpawnRadius = 0)
         {
-            Vector3 randomOffset = Random.onUnitSphere * _spawnRadius;
+            float spawnRadius = _spawnRadius;
+
+            if (newSpawnRadius != 0)
+            {
+                spawnRadius = newSpawnRadius;
+            }
+
+            Vector3 randomOffset = Random.onUnitSphere * spawnRadius;
             randomOffset.y = 1f;
 
             Vector3 spawnPosition = partyPos + randomOffset;
@@ -88,12 +94,12 @@ namespace CookApps.Game
             return spawnPosition;
         }
 
-        private void SpawnEnemy(Vector3 partyPos)
+        internal EnemyUnit SpawnEnemy(EnemyTemplate template, Vector3 partyPos)
         {
             EnemyUnit enemyUnit;
-            if (_enemyUnits.Count == 0)
+            if (template.enemyType == EEnemyType.Boss || _enemyUnits.Count == 0)
             {
-                enemyUnit = Instantiate(_prefab, Vector3.zero, Quaternion.identity, transform).GetComponent<EnemyUnit>();
+                enemyUnit = Instantiate(template.prefab, Vector3.zero, Quaternion.identity, transform).GetComponent<EnemyUnit>();
             }
             else
             {
@@ -102,12 +108,14 @@ namespace CookApps.Game
             }
             var spawnPos = GetRandomPos(partyPos);
             enemyUnit.transform.position = spawnPos;
-            // TODO: 템플릿으로 동작하도록 수정
-            enemyUnit.Initialize();
+            
+            enemyUnit.Initialize(template);
 
             _enemySystem.Add(enemyUnit);
 
             onCompleteSpawn?.Invoke(_partySystem.mainUnit);
+
+            return enemyUnit;
         }
 
         public void DespawnEnemy(EnemyUnit enemyUnit)
@@ -115,6 +123,24 @@ namespace CookApps.Game
             enemyUnit.gameObject.SetActive(false);
             _enemyUnits.Push(enemyUnit);
             _enemySystem.Remove(enemyUnit);
+        }
+
+        internal void DisableAllEnemy()
+        {
+            // 자동 생성 멈추기
+            StopCoroutine(coroutine);
+
+            var enemies = new List<EnemyUnit>(_enemySystem.AllEnemies());
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i].template.enemyType == EEnemyType.Boss) continue;
+
+                if (enemies[i].healthAbility.IsAlive)
+                {
+                    DespawnEnemy(enemies[i]);
+                }
+            }
         }
     }
 }

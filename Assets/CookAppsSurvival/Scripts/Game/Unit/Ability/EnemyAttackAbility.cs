@@ -69,9 +69,10 @@ namespace CookApps.Game
             base.Initialize();
         }
 
-        internal void DeInitialize()
+        internal override void DeInitialize()
         {
             isAttackAble = false;
+            base.DeInitialize();
         }
 
         protected override bool Action()
@@ -89,15 +90,15 @@ namespace CookApps.Game
         private void ExcuteAttack()
         {
             // 목표로 이동하는 타겟을 공격 타겟으로 설정
-            attackTarget = _enemyUnit.moveAbility.target;
+            _attackTarget = _enemyUnit.moveAbility.target;
 
             // 공격 범위 안에 타겟이 들어왔는지
-            bool isInRange = IsInRange(attackTarget);
+            bool isInRange = IsInRange(_attackTarget);
 
-            if (attackTarget != null && isInRange)
+            if (_attackTarget != null && isInRange)
             {
                 // 공격
-                AttackAnimation(attackTarget);
+                AttackAnimation(_attackTarget);
             }
         }
         #endregion

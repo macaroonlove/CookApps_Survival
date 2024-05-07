@@ -16,7 +16,7 @@ namespace CookApps.Game
         internal ESpeed speed => _speed;
         internal bool isPause => _isPause;
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
             _speed = ESpeed.None;
             _isPause = false;

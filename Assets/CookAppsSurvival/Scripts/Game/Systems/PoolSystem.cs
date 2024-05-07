@@ -11,7 +11,7 @@ namespace CookApps.Game
     {
         private Dictionary<string, Stack<GameObject>> objectPool = new Dictionary<string, Stack<GameObject>>();
 
-        public void Initialize()
+        public void Initialize(StageTemplate stage)
         {
             
         }

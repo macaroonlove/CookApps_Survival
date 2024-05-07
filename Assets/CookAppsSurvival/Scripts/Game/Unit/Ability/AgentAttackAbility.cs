@@ -127,6 +127,9 @@ namespace CookApps.Game
         {
             // 메인 유닛이 목표로 이동하는 타겟을 공격 타겟으로 설정
             _attackTarget = _partySystem.mainUnit.moveAbility.target;
+            
+            if (_attackTarget == null) return;
+
             _partyUnit.moveAbility.NewAttackTarget(_attackTarget);
 
             // 공격 범위 안에 타겟이 들어왔는지

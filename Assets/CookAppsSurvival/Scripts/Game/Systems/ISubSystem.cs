@@ -2,7 +2,7 @@ namespace CookApps.Game
 {
     public interface ISubSystem
     {
-        void Initialize();
+        void Initialize(StageTemplate stage);
         void Deinitialize();
     }
 }

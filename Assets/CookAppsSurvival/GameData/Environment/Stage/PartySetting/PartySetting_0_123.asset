@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26067715eca3de9438e9af80de3486b1, type: 3}
-  m_Name: PartySetting
+  m_Name: PartySetting_0_123
   m_EditorClassIdentifier: 
   partyMembers:
   - {fileID: 11400000, guid: e4f2b5f0ecc6b2e4ab9116d635c3d4ff, type: 2}

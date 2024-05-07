@@ -17,6 +17,7 @@ namespace CookApps.Game
         int hash_Skill;
         int hash_Hit;
         int hash_Death;
+        int hash_Victory;
 
         private void Awake()
         {
@@ -27,6 +28,7 @@ namespace CookApps.Game
             hash_Skill = Animator.StringToHash("skill");
             hash_Hit = Animator.StringToHash("hit");
             hash_Death = Animator.StringToHash("death");
+            hash_Victory = Animator.StringToHash("victory");
         }
 
         internal void Initialze(Unit unit)
@@ -59,6 +61,11 @@ namespace CookApps.Game
         internal void Death()
         {
             _animator.SetTrigger(hash_Death);
+        }
+
+        internal void Victory()
+        {
+            _animator.SetTrigger(hash_Victory);
         }
 
         private void Update()
