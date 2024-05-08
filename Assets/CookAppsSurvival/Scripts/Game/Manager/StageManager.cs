@@ -1,4 +1,5 @@
 using FrameWork;
+using FrameWork.Sound;
 using FrameWork.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,10 +13,14 @@ namespace CookApps.Game
     {
         [SerializeField] StageLibraryTemplate template;
 
+        [Header("UI")]
         [SerializeField] CanvasGroupController ui_Opening;
         [SerializeField] CanvasGroupController ui_GameClear;
         [SerializeField] CanvasGroupController ui_Victory;
         [SerializeField] CanvasGroupController ui_Default;
+
+        [Header("»ç¿îµå")]
+        [SerializeField] AudioClip clip_GameStart;
 
         private BossSystem _bossSystem;
         private PartySystem _partySystem;
@@ -29,6 +34,7 @@ namespace CookApps.Game
             if (activeScene == template.stage[0].sceneName)
             {
                 ui_Opening.Show();
+                SoundManager.PlayBGM(clip_GameStart);
                 return;
             }
 
@@ -41,6 +47,7 @@ namespace CookApps.Game
             {
                 if (stage.sceneName == activeScene)
                 {
+                    SoundManager.PlayBGM(stage.BGM);
                     BattleManager.Instance.InitializeStage(stage);
                 }
             }

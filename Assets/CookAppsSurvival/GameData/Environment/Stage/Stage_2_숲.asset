@@ -19,3 +19,4 @@ MonoBehaviour:
   partySettingTemplate: {fileID: 11400000, guid: 2f395496115f4df43ba0c12719bf1357,
     type: 2}
   spawnTemplate: {fileID: 11400000, guid: b3f937d4dd6566d4ba41506fa92832a8, type: 2}
+  BGM: {fileID: 8300000, guid: 0524a8b28f7353c49a2a7c99796ef253, type: 3}

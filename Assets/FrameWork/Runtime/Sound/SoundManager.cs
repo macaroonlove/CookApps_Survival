@@ -683,6 +683,11 @@ namespace FrameWork.Sound
 
         #region Play Functions
 
+        public static int PlayBGM(AudioClip clip)
+        {
+            return PlayAudio(Audio.AudioType.Music, clip, 1f, true, false, 1f, 1f, -1f, null);
+        }
+
         /// <summary>
         /// Play background music
         /// </summary>

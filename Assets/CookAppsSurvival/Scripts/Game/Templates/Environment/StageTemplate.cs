@@ -22,5 +22,8 @@ namespace CookApps.Game
 
         [Header("스폰 설정")]
         public EnemySpawnTemplate spawnTemplate;
+
+        [Header("사운드")]
+        public AudioClip BGM;
     }
 }

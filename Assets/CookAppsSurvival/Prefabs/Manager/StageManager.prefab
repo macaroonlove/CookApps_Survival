@@ -1135,6 +1135,7 @@ MonoBehaviour:
   ui_GameClear: {fileID: 6020644870783481959}
   ui_Victory: {fileID: 330743082784712038}
   ui_Default: {fileID: 7242496326575468900}
+  clip_GameStart: {fileID: 8300000, guid: 99f5420b59f7c93449cb7e11e9423350, type: 3}
 --- !u!1 &8402650028003910257
 GameObject:
   m_ObjectHideFlags: 0

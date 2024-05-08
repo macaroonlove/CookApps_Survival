@@ -18,6 +18,10 @@ MonoBehaviour:
     - 
     - fa14bf0c0f3f4b8d8c9d9238f6d21dba
     - 9a7a36a613e44209820d8fb015aa3dc3
+    - 8f12772e4bb38b4499189fc8be735e5a
+    - aba25a48475f23b4ea5611fb9d0ea5fd
+    - ce42b90a530b95546801cdf60671c4c8
+    - 85c46941e79c97246a9e3054bfb9087c
     values:
     - goDatasByGlobalId:
         keys:
@@ -25,10 +29,8 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-400143111-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-759762130-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-699339632-0
-        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-1104080404-0
         - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-7972669596051036201-7159656954022518103
-        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-7643335240402617822-7159656954022518103
-        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-7710016027087325719-7159656954022518103
+        - GlobalObjectId_V1-2-a9bb8a4ff7fb342449ba61a05588fe7f-6187073169344380292-8555634552753694424
         values:
         - iColor: 0
           icon: Camera Icon
@@ -38,16 +40,12 @@ MonoBehaviour:
           icon: Terrain Icon
         - iColor: 0
           icon: Light Icon
-        - iColor: 7
-          icon: ReflectionProbe Icon
         - iColor: 6
           icon: 
-        - iColor: 2
-          icon: 
-        - iColor: 2
+        - iColor: 7
           icon: 
       goDatasByInstanceId:
-        keys: 7e9e0000869e0000a29e00009a9e0000ac9e00008c08ffff4e08ffff3005ffff
+        keys: fa760000027700001e7700001677000024faffffe6f9ffffc8f6ffffa4faffffda8c0000e28c0000fe8c0000f68c0000fcc1ffff768f00007e8f00009a8f0000928f000008b7ffff18940000209400003c94000034940000de9dffff5e9dffff549400005c94000078940000709400004098ffffc098ffffb4960000bc960000d8960000d0960000e889ffff688affff389b0000409b00005c9b0000549b00000472ffffa06effffcca30000d4a30000f0a30000e8a300003444ffffb444ffff2ca6000034a6000050a6000048a60000da35ffff5a36ffff
         values:
         - iColor: 0
           icon: Camera Icon
@@ -57,14 +55,106 @@ MonoBehaviour:
           icon: Terrain Icon
         - iColor: 0
           icon: Light Icon
-        - iColor: 7
-          icon: ReflectionProbe Icon
         - iColor: 6
           icon: 
         - iColor: 2
           icon: 
         - iColor: 2
           icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 6
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 6
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 6
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 6
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Terrain Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 6
+          icon: 
+        - iColor: 7
+          icon: 
     - goDatasByGlobalId:
         keys: []
         values: []
@@ -83,3 +173,139 @@ MonoBehaviour:
       goDatasByInstanceId:
         keys: 
         values: []
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-8f12772e4bb38b4499189fc8be735e5a-6187073169344380292-8555634552753694424
+        - GlobalObjectId_V1-2-8f12772e4bb38b4499189fc8be735e5a-7972669596051036201-7159656954022518103
+        - GlobalObjectId_V1-2-8f12772e4bb38b4499189fc8be735e5a-7643335240402617822-7159656954022518103
+        - GlobalObjectId_V1-2-8f12772e4bb38b4499189fc8be735e5a-7710016027087325719-7159656954022518103
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+      goDatasByInstanceId:
+        keys: 1e80ffff9485ffff5685ffff3882ffff3274ffff2a7affffec79ffffce76ffffdc6bffffd268ffff9468ffff7665ffffda52ffffaa58ffff6c58ffff4e55ffffe23dffff1e3bffffe03affffc237ffff
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-aba25a48475f23b4ea5611fb9d0ea5fd-6187073169344380292-8555634552753694424
+        - GlobalObjectId_V1-2-aba25a48475f23b4ea5611fb9d0ea5fd-7972669596051036201-7159656954022518103
+        - GlobalObjectId_V1-2-aba25a48475f23b4ea5611fb9d0ea5fd-7643335240402617822-7159656954022518103
+        - GlobalObjectId_V1-2-aba25a48475f23b4ea5611fb9d0ea5fd-7710016027087325719-7159656954022518103
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+      goDatasByInstanceId:
+        keys: f261ffff1a5fffffdc5effffbe5bffff
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-ce42b90a530b95546801cdf60671c4c8-6187073169344380292-8555634552753694424
+        - GlobalObjectId_V1-2-ce42b90a530b95546801cdf60671c4c8-7972669596051036201-7159656954022518103
+        - GlobalObjectId_V1-2-ce42b90a530b95546801cdf60671c4c8-7710016027087325719-7159656954022518103
+        - GlobalObjectId_V1-2-ce42b90a530b95546801cdf60671c4c8-7643335240402617822-7159656954022518103
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+      goDatasByInstanceId:
+        keys: 4650ffffc64fffff6a4cffff884fffff
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-85c46941e79c97246a9e3054bfb9087c-6187073169344380292-8555634552753694424
+        - GlobalObjectId_V1-2-85c46941e79c97246a9e3054bfb9087c-7972669596051036201-7159656954022518103
+        - GlobalObjectId_V1-2-85c46941e79c97246a9e3054bfb9087c-7643335240402617822-7159656954022518103
+        - GlobalObjectId_V1-2-85c46941e79c97246a9e3054bfb9087c-7710016027087325719-7159656954022518103
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
+      goDatasByInstanceId:
+        keys: 9047ffff044bffffc64affffa847ffff
+        values:
+        - iColor: 7
+          icon: 
+        - iColor: 6
+          icon: 
+        - iColor: 3
+          icon: 
+        - iColor: 3
+          icon: 
