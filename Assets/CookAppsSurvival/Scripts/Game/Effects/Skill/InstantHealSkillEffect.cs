@@ -49,7 +49,10 @@ namespace CookApps.Game
 
                     agent.healthAbility.Healed(healAmount);
 
-                    fx.Play(agent, unit);
+                    if (fx != null)
+                    {
+                        fx.Play(agent, unit);
+                    }
                 }
             }
 

@@ -11,6 +11,8 @@ namespace CookApps.Game
         [SerializeField] private float _duration;
         [SerializeField] private Vector3 _offset;
 
+        [SerializeField] private bool _isFollow;
+
         public override void Play(Unit target, Unit caster = null)
         {
             if (_particle == null) return;
@@ -31,6 +33,17 @@ namespace CookApps.Game
 
             // 파티클 재생
             _particle.Play();
+
+            // 목표를 따라가는 파티클
+            if (_isFollow)
+            {
+                var follow = instance.GetComponent<Follow>();
+                if (follow == null)
+                {
+                    follow = instance.AddComponent<Follow>();
+                }
+                follow.SetTarget(target.transform, _offset);
+            }
 
             // 지연시간
             yield return new WaitForSeconds(_duration);

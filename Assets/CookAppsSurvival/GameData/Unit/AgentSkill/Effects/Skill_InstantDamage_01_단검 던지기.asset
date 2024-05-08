@@ -17,3 +17,4 @@ MonoBehaviour:
   numberOfEnemies: 0
   damageType: 0
   damageAmountPer: 1
+  fx: {fileID: 11400000, guid: c04641d26a807ce44b3ba9a0db02b7e9, type: 2}

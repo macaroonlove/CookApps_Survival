@@ -16,7 +16,7 @@ namespace CookApps.Game
         /// <summary>
         /// 범위 지정
         /// </summary>
-        [EnumCondition("damageTarget", (int)EEnemyTarget.NumEnemyInRange, (int)EEnemyTarget.AllEnemyInRange)]
+        [EnumCondition("damageTarget", (int)EEnemyTarget.OneEnemyInRange, (int)EEnemyTarget.NumEnemyInRange, (int)EEnemyTarget.AllEnemyInRange)]
         [SerializeField] private float radius;
 
         /// <summary>
@@ -35,6 +35,11 @@ namespace CookApps.Game
         /// </summary>
         [SerializeField] private float damageAmountPer;
 
+        /// <summary>
+        /// fx
+        /// </summary>
+        [SerializeField] FX fx;
+
         public override bool Excute(PartyUnit unit)
         {
             List<EnemyUnit> enemies = new List<EnemyUnit>();
@@ -49,6 +54,11 @@ namespace CookApps.Game
                     var damage = GetAmount(unit);
 
                     enemy.healthAbility.Damaged(damage, unit.id);
+
+                    if (fx != null)
+                    {
+                        fx.Play(unit, enemy);
+                    }
                 }
             }
 

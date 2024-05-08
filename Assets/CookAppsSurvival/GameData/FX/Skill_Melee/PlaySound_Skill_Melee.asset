@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90945a2f8237ab343811fe8bebad013c, type: 3}
-  m_Name: PlayParticle_Stun
+  m_Script: {fileID: 11500000, guid: 04972f5441f814248ab121569856e42b, type: 3}
+  m_Name: PlaySound_Skill_Melee
   m_EditorClassIdentifier: 
-  _particle: {fileID: 5659291355382750469, guid: b3db7d4d711f94d4796743baa5ba7a38,
-    type: 3}
-  _duration: 1
-  _offset: {x: 0, y: 0, z: 0}
-  _isFollow: 1
+  _clip: {fileID: 0}
