@@ -153,6 +153,8 @@ MonoBehaviour:
     - b617f1fb811cb6941b550d85c53240e9
     - a73bc430b3510e541963e3cf36bba601
     - ef7fc5541daec46bca80267c6c95c646
+    - fe2bfcd961dba9142ad9bb6494aa6aac
+    - f54d1bd14bd3ca042bd867b519fee8cc
     values:
     - colorIndex: 7
       iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
@@ -196,7 +198,7 @@ MonoBehaviour:
       iconNameOrGuid: 
     - colorIndex: 7
       iconNameOrGuid: 
-    - colorIndex: 0
+    - colorIndex: 3
       iconNameOrGuid: Cubemap Icon
     - colorIndex: 7
       iconNameOrGuid: 
@@ -427,6 +429,10 @@ MonoBehaviour:
     - colorIndex: 9
       iconNameOrGuid: 
     - colorIndex: 10
+      iconNameOrGuid: 
+    - colorIndex: 9
+      iconNameOrGuid: 
+    - colorIndex: 9
       iconNameOrGuid: 
     - colorIndex: 9
       iconNameOrGuid: 
