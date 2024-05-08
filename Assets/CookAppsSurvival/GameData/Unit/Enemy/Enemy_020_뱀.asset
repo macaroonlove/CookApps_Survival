@@ -15,9 +15,11 @@ MonoBehaviour:
   id: 20
   displayName: "\uBC40"
   enemyType: 0
+  dropExp: 3
+  dropGold: 3
   prefab: {fileID: 5341926376977079689, guid: c35cc44b558523c4c9c432b259ba10a7, type: 3}
-  maxHp: 100
-  ATK: 10
+  maxHp: 110
+  ATK: 11
   attackTerm: 1
   attackRange: 1
   moveSpeed: 3.5

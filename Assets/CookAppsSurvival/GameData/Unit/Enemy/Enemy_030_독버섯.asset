@@ -15,9 +15,11 @@ MonoBehaviour:
   id: 30
   displayName: "\uB3C5\uBC84\uC12F"
   enemyType: 0
+  dropExp: 5
+  dropGold: 5
   prefab: {fileID: 4839971577577498426, guid: 9c8737afdea18df42b88bfae9dbff952, type: 3}
-  maxHp: 100
-  ATK: 10
+  maxHp: 121
+  ATK: 12
   attackTerm: 1
   attackRange: 1
   moveSpeed: 3.5

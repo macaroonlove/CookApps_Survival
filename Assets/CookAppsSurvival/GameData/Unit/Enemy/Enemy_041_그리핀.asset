@@ -15,12 +15,14 @@ MonoBehaviour:
   id: 41
   displayName: "\uADF8\uB9AC\uD540"
   enemyType: 1
+  dropExp: 80
+  dropGold: 80
   prefab: {fileID: 4907725134062106703, guid: 0250b55e1df77964f99dec77771e3f7a, type: 3}
-  maxHp: 100
-  ATK: 10
-  attackTerm: 1
-  attackRange: 1
-  moveSpeed: 3.5
-  trackableDistance: 20
+  maxHp: 266
+  ATK: 26
+  attackTerm: 1.6
+  attackRange: 3
+  moveSpeed: 5
+  trackableDistance: 50
   patrolRadius: 5
   patrolWaitTime: 3

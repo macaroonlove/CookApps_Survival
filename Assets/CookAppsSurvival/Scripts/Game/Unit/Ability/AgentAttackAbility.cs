@@ -44,6 +44,15 @@ namespace CookApps.Game
             {
                 float final = _pureAttackDistance;
 
+                // 보스의 경우 사거리 보정
+                if (_attackTarget is EnemyUnit enemy)
+                {
+                    if (enemy.template.enemyType == EEnemyType.Boss)
+                    {
+                        final += enemy.template.attackRange;
+                    }
+                }
+
                 //일부 보정
                 final += 0.3f;
 
