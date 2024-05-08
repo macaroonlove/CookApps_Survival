@@ -25,6 +25,12 @@ namespace CookApps.Game
             _target = target;
             _attackAbility = attackAbility;
 
+            if (target == null || !target.healthAbility.IsAlive)
+            {
+                DeSpawn();
+                return;
+            }
+
             if (isLookTarget)
             {
                 transform.GetChild(0).LookAt(_target.projectileHitPoint);

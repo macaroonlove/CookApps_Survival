@@ -27,8 +27,10 @@ namespace CookApps.Game
 
         private string activeScene;
 
-        void Start()
+        protected override void Start()
         {
+            base.Start();
+
             activeScene = SceneManager.GetActiveScene().name;
 
             if (activeScene == template.stage[0].sceneName)

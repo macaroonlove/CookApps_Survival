@@ -12,5 +12,7 @@ namespace CookApps.Game
         public int price;
 
         public BuffTemplate template;
+
+        public FX fx;
     }
 }

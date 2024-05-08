@@ -24,6 +24,7 @@ namespace CookApps.Game
             var members = _partySystem.GetAllMembers();
             foreach (var member in members)
             {
+                healItem.fx.Play(member);
                 var maxHp = member.healthAbility.maxHp;
                 member.healthAbility.Healed((int)(maxHp * healItem.healPer));
             }

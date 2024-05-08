@@ -38,6 +38,7 @@ namespace CookApps.Game
         private IEnumerator CoClearExpLevel()
         {
             yield return null;
+            
             foreach (var member in _partySystem.GetAllMembers())
             {
                 member.ClearExpLevel();
@@ -59,11 +60,13 @@ namespace CookApps.Game
 
             foreach (var unit in units)
             {
+                // 몬스터를 1대라도 때려야 경험치를 얻을 수 있습니다.
                 if (dealStatistics.ContainsKey(unit.id))
                 {
                     // 데미지 입힌 비율 / 총 경험치량
                     float damageRatio = dealStatistics[unit.id] / totalDamage;
-                    int exp = Mathf.RoundToInt(damageRatio * dropExp);
+                    // 최소 경험치 1 보장
+                    int exp = Mathf.Max(1, Mathf.RoundToInt(damageRatio * dropExp));
 
                     int totalExp = unit.GainEXP(exp);
                     float needExp = GetNeedExp(unit);

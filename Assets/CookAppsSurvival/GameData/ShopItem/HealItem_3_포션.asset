@@ -16,3 +16,4 @@ MonoBehaviour:
   desc: "\uBAA8\uB4E0 \uC720\uB2DB\uC774 30% \uD68C\uBCF5"
   price: 30
   healPer: 0.3
+  fx: {fileID: 11400000, guid: 8dfcf288e557f054fbfb4aafd0e74af4, type: 2}

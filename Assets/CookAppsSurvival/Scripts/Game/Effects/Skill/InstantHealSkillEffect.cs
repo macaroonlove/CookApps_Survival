@@ -29,6 +29,11 @@ namespace CookApps.Game
         /// </summary>
         [SerializeField] private float damageAmountPer;
 
+        /// <summary>
+        /// FX
+        /// </summary>
+        [SerializeField] private FX fx;
+
         public override bool Excute(PartyUnit unit)
         {
             List<PartyUnit> agents = new List<PartyUnit>();
@@ -43,6 +48,8 @@ namespace CookApps.Game
                     var healAmount = GetAmount(unit);
 
                     agent.healthAbility.Healed(healAmount);
+
+                    fx.Play(agent, unit);
                 }
             }
 

@@ -12,5 +12,7 @@ namespace CookApps.Game
         public int price;
 
         public float healPer;
+
+        public FX fx;
     }
 }

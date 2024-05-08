@@ -21,6 +21,7 @@ namespace CookApps.Game
         [SerializeField] private Transform _projectileHitPoint;
 
         protected UnitAnimationController _animationController;
+        private AttackAbility _attackAbility;
         protected MoveAbility _moveAbility;
         protected HealthAbility _healthAbility;
         protected AbnormalStatusAbility _abnormalStatusAbility;
@@ -28,6 +29,7 @@ namespace CookApps.Game
         protected BuffAbility _buffAbility;
 
         public UnitAnimationController animationController => _animationController;
+        public AttackAbility attackAbility => _attackAbility;
         public MoveAbility moveAbility => _moveAbility;
         public HealthAbility healthAbility => _healthAbility;
         public AbnormalStatusAbility abnormalStatusAbility => _abnormalStatusAbility;
@@ -72,7 +74,12 @@ namespace CookApps.Game
             {
                 TryGetComponent(out _animationController);
             }
-            
+
+            if (_attackAbility == null)
+            {
+                TryGetComponent(out _attackAbility);
+            }
+
             if (_moveAbility == null)
             {
                 TryGetComponent(out _moveAbility);

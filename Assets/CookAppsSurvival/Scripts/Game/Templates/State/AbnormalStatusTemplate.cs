@@ -12,6 +12,8 @@ namespace CookApps.Game
         [TextArea]
         public string description;
 
+        public FX fx;
+
         [Header("효과 구현")]
         public List<Effect> effects;
     }

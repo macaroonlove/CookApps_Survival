@@ -1006,11 +1006,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7972669596051036201, guid: c08eeae260c127e4f8038c94977402a7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8035027059833041553, guid: c08eeae260c127e4f8038c94977402a7,
         type: 3}
       propertyPath: m_AnchorMax.y

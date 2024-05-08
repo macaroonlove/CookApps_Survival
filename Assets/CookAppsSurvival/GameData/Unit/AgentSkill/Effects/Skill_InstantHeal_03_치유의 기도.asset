@@ -16,3 +16,4 @@ MonoBehaviour:
   radius: 4
   healType: 0
   damageAmountPer: 2.5
+  fx: {fileID: 11400000, guid: 8dfcf288e557f054fbfb4aafd0e74af4, type: 2}

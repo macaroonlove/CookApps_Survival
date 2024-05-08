@@ -16,3 +16,4 @@ MonoBehaviour:
   desc: "\uC774\uB3D9\uC18D\uB3C4 30% \uC99D\uAC00 \uD3EC\uC158"
   price: 10
   template: {fileID: 11400000, guid: e6ebb9e97392b964eb681093d6d05b50, type: 2}
+  fx: {fileID: 11400000, guid: 4e97f6ee3d6dfd74ca4915037753ffad, type: 2}

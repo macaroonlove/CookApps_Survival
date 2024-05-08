@@ -24,6 +24,7 @@ namespace CookApps.Game
             var members = _partySystem.GetAllMembers();
             foreach (var member in members)
             {
+                buffItem.fx.Play(member);
                 member.buffAbility.ApplyBuff(buffItem.template);
             }
 

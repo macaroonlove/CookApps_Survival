@@ -86,6 +86,11 @@ namespace CookApps.Game
                     }
                 }
             }
+
+            if (template.fx != null)
+            {
+                template.fx.Play(_unit);
+            }
         }
 
         private IEnumerator CoStatus(StatusInstance statusInstance, AbnormalStatusTemplate template)
