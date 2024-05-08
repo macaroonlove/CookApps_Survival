@@ -36,6 +36,7 @@ namespace CookApps.Game
         void Update()
         {
             if (!_unit.healthAbility.IsAlive) return;
+            if (_partySystem.mainUnit == null) return;
 
             var dist = Vector3.Distance(_partySystem.mainUnit.transform.position, transform.position);
             

@@ -75,6 +75,8 @@ namespace CookApps.Game
             _partyUnits.RemoveAt(0);
             if (_partyUnits.Count <= 0)
             {
+                unit.gameObject.SetActive(false);
+
                 // 게임 종료
                 onDefault?.Invoke();
 
