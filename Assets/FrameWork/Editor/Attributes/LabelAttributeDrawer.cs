@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace FrameWork.Editor
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(LabelAttribute))]
     public class LabelAttributeDrawer : PropertyDrawer
     {
-#if UNITY_EDITOR
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             LabelAttribute labelAttribute = (LabelAttribute)attribute;
@@ -17,6 +17,6 @@ namespace FrameWork.Editor
             // 프로퍼티 그리기
             EditorGUI.PropertyField(position, property, label, true);
         }
-#endif
     }
+#endif
 }

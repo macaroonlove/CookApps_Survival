@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace FrameWork.Editor
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(TextColorUsageAttribute))]
     public class TextColorUsageAttributeDrawer : PropertyDrawer
     {
-#if UNITY_EDITOR
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             TextColorUsageAttribute textColorUsageAttribute = (TextColorUsageAttribute)attribute;
@@ -30,6 +30,6 @@ namespace FrameWork.Editor
 
             EditorGUI.EndProperty();
         }
-#endif
     }
+#endif
 }

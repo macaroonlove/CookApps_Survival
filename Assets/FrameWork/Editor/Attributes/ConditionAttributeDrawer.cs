@@ -3,10 +3,10 @@ using UnityEditor;
 
 namespace FrameWork.Editor
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ConditionAttribute))]
     public class ConditionAttributeDrawer : PropertyDrawer
     {
-#if UNITY_EDITOR
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             ConditionAttribute conditionAttribute = (ConditionAttribute)attribute;
@@ -19,7 +19,6 @@ namespace FrameWork.Editor
             }
             GUI.enabled = previouslyEnabled;
         }
-#endif
 
         private bool GetConditionAttributeResult(ConditionAttribute condHAtt, SerializedProperty property)
         {
@@ -55,4 +54,5 @@ namespace FrameWork.Editor
             }
         }
     }
+#endif
 }

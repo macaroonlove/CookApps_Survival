@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace FrameWork.Editor
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(EnumConditionAttribute))]
     public class EnumConditionAttributeDrawer : PropertyDrawer
     {
-#if UNITY_EDITOR
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             EnumConditionAttribute enumConditionAttribute = (EnumConditionAttribute)attribute;
@@ -21,7 +22,6 @@ namespace FrameWork.Editor
             }
             GUI.enabled = previouslyEnabled;
         }
-#endif
 
         private static Dictionary<string, string> cachedPaths = new Dictionary<string, string>();
 
@@ -69,4 +69,5 @@ namespace FrameWork.Editor
             }
         }
     }
+#endif
 }

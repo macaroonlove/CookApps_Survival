@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b83205368350c348883d286a9702948, type: 3}
-  m_Name: SampleTileRange
+  m_Script: {fileID: 11500000, guid: f351fc1a6cf09e6429d7fcee563de780, type: 3}
+  m_Name: SOArchitecture_Settings
   m_EditorClassIdentifier: 
-  range:
-  - {x: 0, y: 0}
-  - {x: 0, y: -1}
-  - {x: 0, y: 1}
-  - {x: -1, y: 0}
-  - {x: 1, y: 0}
-  - {x: 1, y: -1}
-  - {x: 1, y: 1}
-  - {x: -1, y: 1}
-  - {x: -1, y: -1}
+  _codeGenerationTargetDirectory: CODE_GENERATION
+  _codeGenerationAllowOverwrite: 0
+  _defualtCreateAssetMenuOrder: 120

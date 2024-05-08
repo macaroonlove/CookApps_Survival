@@ -184,6 +184,7 @@ namespace CookApps.Game
 
         internal bool IsUnitLeft()
         {
+            if (_targetPos == null || _unit == null) return false;
             Vector3 directionToUnit = _unit.transform.position - _targetPos.position;
             Vector3 unitRight = _unit.transform.forward;
             float angle = Vector3.SignedAngle(directionToUnit, unitRight, Vector3.up);

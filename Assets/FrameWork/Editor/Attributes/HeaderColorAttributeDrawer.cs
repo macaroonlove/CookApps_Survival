@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace FrameWork.Editor
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(HeaderColorAttribute))]
     public class HeaderColorAttributeDrawer : DecoratorDrawer
     {
-#if UNITY_EDITOR
+
 
         public override void OnGUI(Rect position)
         {
@@ -32,6 +33,7 @@ namespace FrameWork.Editor
         {
             return EditorGUIUtility.singleLineHeight + 10f;
         }
-#endif
+
     }
+#endif
 }

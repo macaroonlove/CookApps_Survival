@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace FrameWork.Editor
 {
+#if UNITY_EDITOR
+
     [CustomPropertyDrawer(typeof(PopupAttribute))]
     public class PopupAttributeDrawer : PropertyDrawer
     {
@@ -74,4 +76,5 @@ namespace FrameWork.Editor
             return stringOptions;
         }
     }
+#endif
 }
