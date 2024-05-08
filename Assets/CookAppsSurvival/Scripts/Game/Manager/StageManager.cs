@@ -1,3 +1,4 @@
+using FrameWork;
 using FrameWork.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,10 +8,11 @@ using UnityEngine.UI;
 
 namespace CookApps.Game
 {
-    public class StageManager : MonoBehaviour
+    public class StageManager : Singleton<StageManager>
     {
         [SerializeField] StageLibraryTemplate template;
 
+        [SerializeField] CanvasGroupController ui_Opening;
         [SerializeField] CanvasGroupController ui_GameClear;
         [SerializeField] CanvasGroupController ui_Victory;
         [SerializeField] CanvasGroupController ui_Default;
@@ -24,14 +26,25 @@ namespace CookApps.Game
         {
             activeScene = SceneManager.GetActiveScene().name;
 
-            foreach(var stage in template.stage)
+            if (activeScene == template.stage[0].sceneName)
+            {
+                ui_Opening.Show();
+                return;
+            }
+
+            InitializeStage();
+        }
+
+        internal void InitializeStage()
+        {
+            foreach (var stage in template.stage)
             {
                 if (stage.sceneName == activeScene)
                 {
                     BattleManager.Instance.InitializeStage(stage);
                 }
             }
-            
+
             _bossSystem = BattleManager.Instance.GetSubSystem<BossSystem>();
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
 

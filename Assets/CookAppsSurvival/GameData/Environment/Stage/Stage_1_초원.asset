@@ -15,7 +15,7 @@ MonoBehaviour:
   sceneName: "Stage_1_\uCD08\uC6D0"
   normalEnemy: {fileID: 11400000, guid: 3d04db63095f85644a3a6e112fd321aa, type: 2}
   bossEnemy: {fileID: 11400000, guid: d13cb9f6d78389d4b9fbebe6759feb28, type: 2}
-  killUntilBoss: 1
+  killUntilBoss: 10
   partySettingTemplate: {fileID: 11400000, guid: 2f395496115f4df43ba0c12719bf1357,
     type: 2}
   spawnTemplate: {fileID: 11400000, guid: b3f937d4dd6566d4ba41506fa92832a8, type: 2}

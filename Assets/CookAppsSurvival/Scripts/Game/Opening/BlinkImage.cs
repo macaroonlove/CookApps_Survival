@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-namespace CookApps.Opening
+namespace CookApps.Game
 {
     public class BlinkImage : MonoBehaviour
     {
