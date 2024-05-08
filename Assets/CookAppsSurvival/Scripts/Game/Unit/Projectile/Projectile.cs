@@ -9,6 +9,7 @@ namespace CookApps.Game
     /// </summary>
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private bool isLookTarget;
         [SerializeField] private float speed;
 
         private Unit _caster;
@@ -23,6 +24,11 @@ namespace CookApps.Game
             _caster = attackAbility.unit;
             _target = target;
             _attackAbility = attackAbility;
+
+            if (isLookTarget)
+            {
+                transform.GetChild(0).LookAt(_target.projectileHitPoint);
+            }
 
             isInit = true;
         }
