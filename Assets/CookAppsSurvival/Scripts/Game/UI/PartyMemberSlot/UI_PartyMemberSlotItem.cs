@@ -12,6 +12,10 @@ namespace CookApps.Game
         [SerializeField] private TextMeshProUGUI text_Level;
         [SerializeField] private TextMeshProUGUI text_Name;
         [SerializeField] private TextMeshProUGUI text_ATK;
+        [SerializeField] private TextMeshProUGUI text_MaxHp;
+        [SerializeField] private Image image_AttackTerm;
+        [SerializeField] private Image image_SkillTermIcon;
+        [SerializeField] private Image image_SkillTerm;
         [SerializeField] private Slider slider_Exp;
 
         private PartyUnit _unit;
@@ -24,6 +28,7 @@ namespace CookApps.Game
 
             image_Face.sprite = unit.template.face;
             text_Name.text = unit.template.displayName;
+            image_SkillTermIcon.sprite = unit.template.skillTemplate.face;
 
             text_Level.text = $"LV. {unit.GetLevel()}";
             slider_Exp.value = _levelSystem.GetExpGauge(unit);
@@ -38,6 +43,8 @@ namespace CookApps.Game
             if (!_unit.healthAbility.IsAlive) return;
 
             text_ATK.text = _unit.agentAttackAbility.finalATK.ToString();
+            image_AttackTerm.fillAmount = _unit.agentAttackAbility.cooldownAmount;
+            image_SkillTerm.fillAmount = _unit.agentAttackAbility.skillCooldownAmount;
         }
 
         private void OnGainExp()
@@ -47,6 +54,8 @@ namespace CookApps.Game
 
         private void OnLevelUp()
         {
+            text_MaxHp.text = _unit.healthAbility.maxHp.ToString();
+
             text_Level.text = $"LV. {_unit.GetLevel()}";
             slider_Exp.value = 0;
         }

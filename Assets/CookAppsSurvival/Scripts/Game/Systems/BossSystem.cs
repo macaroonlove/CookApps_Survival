@@ -19,7 +19,6 @@ namespace CookApps.Game
         private EnemyUnit _instance;
         private int _bossCnt;
         private int _currentKillCnt;
-        private bool _isAppearBoss;
 
         internal UnityAction onVictory;
 
@@ -28,7 +27,6 @@ namespace CookApps.Game
             _template = stage.bossEnemy;
             _bossCnt = stage.killUntilBoss;
             _currentKillCnt = 0;
-            _isAppearBoss = false;
 
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
@@ -50,7 +48,6 @@ namespace CookApps.Game
             // 목표 처치 수 까지 일반 몬스터를 잡았다면
             if (_bossCnt <= _currentKillCnt)
             {
-                _isAppearBoss = true;
                 _enemySystem.onDieEnemy -= BossAppearanceRitual;
 
                 // 보스 스폰

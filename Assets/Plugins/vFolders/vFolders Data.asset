@@ -178,6 +178,7 @@ MonoBehaviour:
     - e9b54326444ab34499960715c148c720
     - 816fbbb14f485f443b17b9b89751b781
     - 8b58ff9a001f470438949a7fac4530a9
+    - e9efc4728b8c0434fb4693c111d173f8
     values:
     - colorIndex: 7
       iconNameOrGuid: b527e258a0824dd4294ac1f270111a21
@@ -506,4 +507,6 @@ MonoBehaviour:
     - colorIndex: 9
       iconNameOrGuid: 
     - colorIndex: 8
+      iconNameOrGuid: 
+    - colorIndex: 2
       iconNameOrGuid: 

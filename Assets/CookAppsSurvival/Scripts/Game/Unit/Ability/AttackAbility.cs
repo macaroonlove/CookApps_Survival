@@ -13,6 +13,7 @@ namespace CookApps.Game
 
         [SerializeField, ReadOnly] protected bool isAttackAble;
         [SerializeField, ReadOnly] protected float cooldownTime = 0;
+        [SerializeField, ReadOnly] private float finalCooldownTime = 0;
 
         protected Unit _attackTarget;
         protected PoolSystem _poolSystem;
@@ -22,6 +23,8 @@ namespace CookApps.Game
 
         private AttackEventHandler _attackEventHandler;
         private bool _isEventAttack;
+
+        internal float cooldownAmount => cooldownTime / finalCooldownTime;
 
         public abstract Unit unit { get; }
 
@@ -79,6 +82,7 @@ namespace CookApps.Game
             if (isExcute)
             {
                 cooldownTime = finalAttackTerm;
+                finalCooldownTime = cooldownTime;
             }
         }
 

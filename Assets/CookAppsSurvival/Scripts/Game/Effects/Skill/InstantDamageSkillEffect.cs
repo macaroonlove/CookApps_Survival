@@ -57,7 +57,7 @@ namespace CookApps.Game
 
                     if (fx != null)
                     {
-                        fx.Play(unit, enemy);
+                        fx.Play(enemy, unit);
                     }
                 }
             }

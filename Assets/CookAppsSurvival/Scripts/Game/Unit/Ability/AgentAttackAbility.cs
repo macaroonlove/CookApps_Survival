@@ -7,11 +7,14 @@ namespace CookApps.Game
 {
     public class AgentAttackAbility : AttackAbility
     {
-        [SerializeField, ReadOnly] private float skillCooldownTime = 0;
+        private float skillCooldownTime = 1f;
+        private float finalSkillCooldownTime = 1f;
 
         private PartyUnit _partyUnit;
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
+
+        internal float skillCooldownAmount => skillCooldownTime / finalSkillCooldownTime;
 
         public override Unit unit => _partyUnit;
 
@@ -110,10 +113,18 @@ namespace CookApps.Game
             base.DeInitialize();
         }
 
-        protected override bool Action()
+        protected override void Update()
         {
-            skillCooldownTime -= Time.deltaTime;
-            
+            if (skillCooldownTime > 0)
+            {
+                skillCooldownTime -= Time.deltaTime;
+            }
+
+            base.Update();
+        }
+
+        protected override bool Action()
+        {            
             if (_partyUnit.moveAbility.isMove) return false;
             if (_partyUnit.abnormalStatusAbility.UnableToAttackEffects.Count > 0) return false;
 
@@ -164,6 +175,7 @@ namespace CookApps.Game
                 effect.Excute(_partyUnit);
             }
             skillCooldownTime = _partyUnit.skillTemplate.cooldownTime;
+            finalSkillCooldownTime = skillCooldownTime;
         }
         #endregion
 

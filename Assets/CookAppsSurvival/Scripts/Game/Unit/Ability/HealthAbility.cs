@@ -39,7 +39,7 @@ namespace CookApps.Game
                 finalMaxHp += (level - 1) * 10;
             }
 
-            _maxHp = (int)finalMaxHp;
+            _maxHp = (int)(finalMaxHp * increase);
 
             SetHp(_maxHp);
         }
