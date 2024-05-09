@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5315ab7bf2430449ea8e1279838f9e, type: 3}
-  m_Name: PlayProjectile_Skill_Archer
+  m_Script: {fileID: 11500000, guid: f4cfbadde3ed7c74a8cf6cdd724c96b1, type: 3}
+  m_Name: "Skill_00_InstantDamage_\uAE30\uC808\uC758 \uC77C\uACA9_Upgrade"
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 7749559472312188654, guid: 56b4290ad114b6d409131f1288341c68, type: 3}
+  damageTarget: 0
+  radius: 1
+  numberOfEnemies: 0
+  damageType: 0
+  damageAmountPer: 2

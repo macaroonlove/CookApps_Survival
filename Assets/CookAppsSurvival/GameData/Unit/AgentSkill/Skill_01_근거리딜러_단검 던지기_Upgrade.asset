@@ -18,4 +18,4 @@ MonoBehaviour:
   cooldownTime: 3
   face: {fileID: 21300000, guid: 9eed2398c1fa63c4c8eca299fa9980ac, type: 3}
   effects:
-  - {fileID: 11400000, guid: d01719b9b11d58e4693dd268c5edb752, type: 2}
+  - {fileID: 11400000, guid: 82eb8c2d1fcc1f64181898094d2163d3, type: 2}

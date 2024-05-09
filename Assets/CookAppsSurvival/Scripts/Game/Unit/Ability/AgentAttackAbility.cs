@@ -14,6 +14,9 @@ namespace CookApps.Game
         private PartySystem _partySystem;
         private EnemySystem _enemySystem;
 
+        private SkillEventHandler _skillEventHandler;
+        private bool _isEventSkill;
+
         internal float skillCooldownAmount => skillCooldownTime / finalSkillCooldownTime;
 
         public override Unit unit => _partyUnit;
@@ -104,12 +107,25 @@ namespace CookApps.Game
             _partySystem = BattleManager.Instance.GetSubSystem<PartySystem>();
             _enemySystem = BattleManager.Instance.GetSubSystem<EnemySystem>();
 
+            _skillEventHandler = GetComponentInChildren<SkillEventHandler>();
+            if (_skillEventHandler != null)
+            {
+                _skillEventHandler.onSkill += OnSkillEvent;
+                _isEventSkill = true;
+            }
+
             base.Initialize();
         }
 
         internal override void DeInitialize()
         {
             isAttackAble = false;
+
+            if (_skillEventHandler != null)
+            {
+                _skillEventHandler.onSkill -= OnSkillEvent;
+                _isEventSkill = false;
+            }
             base.DeInitialize();
         }
 
@@ -166,14 +182,55 @@ namespace CookApps.Game
 
         #region 스킬 공격
         private void ExcuteSkill()
+        {            
+            // 원하는 목표가 한 유닛이라도 있다면 애니메이션 실행
+            foreach (var effect in _partyUnit.skillTemplate.effects)
+            {
+                // 적을 탐색
+                var enemies = effect.GetTarget(_partyUnit);
+
+                // 적이 있다면
+                if (enemies.Count > 0 && enemies[0] != null)
+                {
+                    SkillAnimation();
+
+                    break;
+                }
+            }
+        }
+
+        private void SkillAnimation()
         {
             // 스킬 모션
             _partyUnit.animationController.Skill();
 
+            // 모션이 없는 즉시 발동 스킬의 경우
+            if (!_isEventSkill)
+            {
+                Skill();
+            }
+        }
+
+        private void OnSkillEvent()
+        {
+            Skill();
+        }
+
+        private void Skill()
+        {
             foreach (var effect in _partyUnit.skillTemplate.effects)
             {
-                effect.Excute(_partyUnit);
+                // 적을 탐색
+                var enemies = effect.GetTarget(_partyUnit);
+
+                // 스킬 실행
+                foreach (var enemy in enemies)
+                {
+                    effect.Excute(_partyUnit, enemy);
+                }
             }
+
+            // 쿨타임 돌리기
             skillCooldownTime = _partyUnit.skillTemplate.cooldownTime;
             finalSkillCooldownTime = skillCooldownTime;
         }
@@ -188,12 +245,15 @@ namespace CookApps.Game
             switch (targetCondition)
             {
                 case EEnemyTarget.OneEnemyInRange:
-                    enemies.Add(_enemySystem.FindNearestEnemy(_partyUnit.transform.position));
+                    radius = FinalSkillDistance(radius);
+                    enemies.Add(_enemySystem.FindNearestEnemyInRange(_partyUnit.transform.position, radius));
                     break;
                 case EEnemyTarget.NumEnemyInRange:
+                    radius = FinalSkillDistance(radius);
                     enemies.AddRange(_enemySystem.FindEnemiesInRadius(_partyUnit.transform.position, radius, maxCount));
                     break;
                 case EEnemyTarget.AllEnemyInRange:
+                    radius = FinalSkillDistance(radius);
                     enemies.AddRange(_enemySystem.FindEnemiesInRadius(_partyUnit.transform.position, radius));
                     break;
                 case EEnemyTarget.AllEnemy:
@@ -229,6 +289,27 @@ namespace CookApps.Game
             }
 
             return members;
+        }
+
+        private float FinalSkillDistance(float radius)
+        {
+            float final = radius;
+
+            // 보스의 경우 사거리 보정
+            if (_attackTarget is EnemyUnit enemy)
+            {
+                if (enemy.template.enemyType == EEnemyType.Boss)
+                {
+                    final += enemy.template.attackRange;
+                }
+            }
+
+            //일부 보정
+            final += 1f;
+
+            final = Mathf.Max(final, 0);
+
+            return final;
         }
         #endregion
     }

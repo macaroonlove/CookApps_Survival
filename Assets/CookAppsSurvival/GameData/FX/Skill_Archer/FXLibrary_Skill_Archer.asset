@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: FXLibrary_Skill_Archer
   m_EditorClassIdentifier: 
   fxs:
-  - {fileID: 11400000, guid: e3bd23ec60bf7c64292a4cfd86de749c, type: 2}
   - {fileID: 11400000, guid: 29c7d444f934b344a8ac3a7aa3221a44, type: 2}

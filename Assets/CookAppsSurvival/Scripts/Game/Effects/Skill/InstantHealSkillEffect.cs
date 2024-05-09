@@ -34,29 +34,27 @@ namespace CookApps.Game
         /// </summary>
         [SerializeField] private FX fx;
 
-        public override bool Excute(PartyUnit unit)
+        public override List<Unit> GetTarget(PartyUnit unit)
         {
-            List<PartyUnit> agents = new List<PartyUnit>();
+            List<Unit> agents = new List<Unit>();
             agents.AddRange(unit.agentAttackAbility.FindHealTargetMembers(healTarget, radius));
 
-            if (agents.Count >= 0)
+            return agents;
+        }
+
+        public override void Excute(PartyUnit unit, Unit agent)
+        {
+            if (unit == null || agent == null) return;
+            if (!agent.healthAbility.IsAlive) return;
+
+            var healAmount = GetAmount(unit);
+
+            agent.healthAbility.Healed(healAmount);
+
+            if (fx != null)
             {
-                foreach (var agent in agents)
-                {
-                    if (!agent.healthAbility.IsAlive) continue;
-
-                    var healAmount = GetAmount(unit);
-
-                    agent.healthAbility.Healed(healAmount);
-
-                    if (fx != null)
-                    {
-                        fx.Play(agent, unit);
-                    }
-                }
+                fx.Play(agent, unit);
             }
-
-            return true;
         }
 
         public int GetAmount(PartyUnit partyUnit)

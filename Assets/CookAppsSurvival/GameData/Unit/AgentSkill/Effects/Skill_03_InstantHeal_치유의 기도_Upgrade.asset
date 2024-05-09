@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4cfbadde3ed7c74a8cf6cdd724c96b1, type: 3}
-  m_Name: "Skill_InstantDamage_01_\uB2E8\uAC80 \uB358\uC9C0\uAE30_Upgrade"
+  m_Script: {fileID: 11500000, guid: e92bf01ebaf8f6c44beb9b2b2106ff03, type: 3}
+  m_Name: "Skill_03_InstantHeal_\uCE58\uC720\uC758 \uAE30\uB3C4_Upgrade"
   m_EditorClassIdentifier: 
-  damageTarget: 2
+  healTarget: 2
   radius: 4
-  numberOfEnemies: 0
-  damageType: 0
-  damageAmountPer: 1
-  fx: {fileID: 11400000, guid: c04641d26a807ce44b3ba9a0db02b7e9, type: 2}
+  healType: 0
+  damageAmountPer: 2.5
+  fx: {fileID: 11400000, guid: 8dfcf288e557f054fbfb4aafd0e74af4, type: 2}

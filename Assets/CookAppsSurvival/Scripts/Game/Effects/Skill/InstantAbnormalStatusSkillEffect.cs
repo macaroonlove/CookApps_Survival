@@ -34,23 +34,22 @@ namespace CookApps.Game
         /// 상태이상 지속시간
         /// </summary>
         [SerializeField] private float duration;
-
-        public override bool Excute(PartyUnit unit)
+        
+        public override List<Unit> GetTarget(PartyUnit unit)
         {
-            List<EnemyUnit> enemies = new List<EnemyUnit>();
+            List<Unit> enemies = new List<Unit>();
             enemies.AddRange(unit.agentAttackAbility.FindAttackTargetEnemies(abnormalTarget, radius, numberOfEnemies));
 
-            if (enemies.Count != 0)
-            {
-                foreach (var enemy in enemies)
-                {
-                    if (!enemy.healthAbility.IsAlive) continue;
-
-                    enemy.abnormalStatusAbility.ApplyAbnormalStatus(abnormalStatus, duration);
-                }
-            }
-
-            return true;
+            return enemies;
         }
+
+        public override void Excute(PartyUnit unit, Unit enemy)
+        {
+            if (unit == null || enemy == null) return;
+            if (!enemy.healthAbility.IsAlive) return;
+
+            enemy.abnormalStatusAbility.ApplyAbnormalStatus(abnormalStatus, duration);
+        }
+
     }
 }

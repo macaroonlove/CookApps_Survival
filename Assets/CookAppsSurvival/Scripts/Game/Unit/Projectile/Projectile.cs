@@ -16,6 +16,11 @@ namespace CookApps.Game
         private Unit _target;
         private AttackAbility _attackAbility;
 
+        private ProjectileDamageSkillEffect _damageSkillEffect;
+
+        // 스킬로 생성된 투사체일 경우
+        private bool _isSkillProjectile;
+
         // 초기화 여부
         private bool isInit;
 
@@ -24,6 +29,27 @@ namespace CookApps.Game
             _caster = attackAbility.unit;
             _target = target;
             _attackAbility = attackAbility;
+
+            if (target == null || !target.healthAbility.IsAlive)
+            {
+                DeSpawn();
+                return;
+            }
+
+            if (isLookTarget)
+            {
+                transform.GetChild(0).LookAt(_target.projectileHitPoint);
+            }
+
+            isInit = true;
+        }
+
+        internal void Initialize(ProjectileDamageSkillEffect effect, Unit caster, Unit target)
+        {
+            _caster = caster;
+            _target = target;
+            _damageSkillEffect = effect;
+            _isSkillProjectile = true;
 
             if (target == null || !target.healthAbility.IsAlive)
             {
@@ -76,13 +102,21 @@ namespace CookApps.Game
 
         private void OnCollision()
         {
-            _attackAbility.AttackImpact(_target);
+            if (_isSkillProjectile)
+            {
+                _damageSkillEffect.SkillImpact(_caster, _target);
+            }
+            else
+            {
+                _attackAbility.AttackImpact(_target);
+            }
+            
             DeSpawn();
         }
 
         private void DeSpawn()
         {
-            _attackAbility.DeSpawnProjectile(gameObject);
+            BattleManager.Instance.GetSubSystem<PoolSystem>().DeSpawn(gameObject);
             isInit = false;
         }
     }

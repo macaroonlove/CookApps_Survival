@@ -57,17 +57,41 @@ namespace CookApps.Game
         internal EnemyUnit FindNearestEnemy(Vector3 unitPos)
         {
             EnemyUnit nearestEnemy = null;
-            float nearestDistanceSqr = Mathf.Infinity;
+            float nearestDistance = Mathf.Infinity;
 
             foreach (EnemyUnit enemy in _enemies)
             {
                 if (enemy != null && enemy.isActiveAndEnabled)
                 {
-                    float distanceSqr = (enemy.transform.position - unitPos).sqrMagnitude;
-                    if (distanceSqr < nearestDistanceSqr)
+                    float distance = Vector3.Distance(enemy.transform.position, unitPos);
+                    if (distance < nearestDistance)
                     {
                         nearestEnemy = enemy;
-                        nearestDistanceSqr = distanceSqr;
+                        nearestDistance = distance;
+                    }
+                }
+            }
+
+            return nearestEnemy;
+        }
+
+        /// <summary>
+        /// 자신을 기준으로 범위 내에 가장 가까운 적을 반환
+        /// </summary>
+        internal EnemyUnit FindNearestEnemyInRange(Vector3 unitPos, float radius)
+        {
+            EnemyUnit nearestEnemy = null;
+            float nearestDistance = Mathf.Infinity;
+
+            foreach (EnemyUnit enemy in _enemies)
+            {
+                if (enemy != null && enemy.isActiveAndEnabled)
+                {
+                    float distance = Vector3.Distance(enemy.transform.position, unitPos);
+                    if (distance < nearestDistance && distance <= radius)
+                    {
+                        nearestEnemy = enemy;
+                        nearestDistance = distance;
                     }
                 }
             }
@@ -88,11 +112,7 @@ namespace CookApps.Game
 
                 if (enemy != null && enemy.isActiveAndEnabled)
                 {
-                    var diff = enemy.transform.position - unitPos;
-
-                    var distance = diff.magnitude;
-
-                    if (distance <= radius)
+                    if (Vector3.Distance(enemy.transform.position, unitPos) <= radius)
                     {
                         if (enemies.Contains(enemy) == false)
                         {

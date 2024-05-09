@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace CookApps.Game
 {
-    [CreateAssetMenu(menuName = "CookAppsSurvival/Effects/Skill/InstantDamage", fileName = "Skill_InstantDamage", order = 0)]
-    public class InstantDamageSkillEffect : SkillEffect
+    [CreateAssetMenu(menuName = "CookAppsSurvival/Effects/Skill/ProjectileDamage", fileName = "Skill_ProjectileDamage", order = 0)]
+    public class ProjectileDamageSkillEffect : SkillEffect
     {
         /// <summary>
         /// 피해 대상
@@ -36,6 +36,21 @@ namespace CookApps.Game
         [SerializeField] private float damageAmountPer;
 
         /// <summary>
+        /// 프리팹
+        /// </summary>
+        [Space(20), SerializeField] private GameObject _prefab;
+
+        /// <summary>
+        /// 투사체 스폰 위치에서 생성할 것인지
+        /// </summary>
+        [SerializeField] private bool isUseProjectileSpwanPoint;
+
+        /// <summary>
+        /// 스폰 위치 오프셋
+        /// </summary>
+        [SerializeField] private Vector3 _offset;
+
+        /// <summary>
         /// fx
         /// </summary>
         [SerializeField] FX fx;
@@ -50,9 +65,25 @@ namespace CookApps.Game
 
         public override void Excute(PartyUnit unit, Unit enemy)
         {
-            if (unit == null || enemy == null) return;
+            if (_prefab == null) return;
+            if (enemy == null || unit == null) return;
             if (!enemy.healthAbility.IsAlive) return;
 
+            Vector3 spawnPoint = unit.transform.position;
+            if (isUseProjectileSpwanPoint)
+            {
+                spawnPoint = unit.attackAbility.projectileSpawnPointVector;
+            }
+
+            var poolSystem = BattleManager.Instance.GetSubSystem<PoolSystem>();
+
+            var projectile = poolSystem.Spawn(_prefab).GetComponent<Projectile>();
+            projectile.transform.SetPositionAndRotation(spawnPoint + _offset, Quaternion.identity);
+            projectile.Initialize(this, unit, enemy);
+        }
+
+        public void SkillImpact(Unit unit, Unit enemy)
+        {
             var damage = GetAmount(unit);
 
             enemy.healthAbility.Damaged(damage, unit.id);
@@ -63,7 +94,7 @@ namespace CookApps.Game
             }
         }
 
-        public int GetAmount(PartyUnit partyUnit)
+        public int GetAmount(Unit partyUnit)
         {
             int amount;
             float typeValue = 0f;

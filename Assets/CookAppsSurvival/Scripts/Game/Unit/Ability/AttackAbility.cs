@@ -25,6 +25,7 @@ namespace CookApps.Game
         private bool _isEventAttack;
 
         internal float cooldownAmount => cooldownTime / finalCooldownTime;
+        internal Vector3 projectileSpawnPointVector => projectileSpawnPoint.position;
 
         public abstract Unit unit { get; }
 
@@ -96,7 +97,7 @@ namespace CookApps.Game
             if (!_isEventAttack)
             {
                 Attack(attackTarget);
-            }            
+            }
         }
 
         private void OnAttackEvent()
@@ -132,11 +133,6 @@ namespace CookApps.Game
             float distance = Vector3.Distance(unit.transform.position, attackTarget.transform.position);
 
             return distance <= finalAttackDistance;
-        }
-
-        internal void DeSpawnProjectile(GameObject obj)
-        {
-            _poolSystem.DeSpawn(obj);
         }
     }
 }

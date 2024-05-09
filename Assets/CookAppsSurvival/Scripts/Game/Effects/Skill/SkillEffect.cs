@@ -9,6 +9,8 @@ namespace CookApps.Game
     /// </summary>
     public abstract class SkillEffect : Effect
     {
-        public abstract bool Excute(PartyUnit unit);
+        public abstract List<Unit> GetTarget(PartyUnit unit);
+
+        public abstract void Excute(PartyUnit unit, Unit enemy);
     }
 }
