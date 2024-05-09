@@ -53,7 +53,8 @@ namespace CookApps.Game
         /// <summary>
         /// fx
         /// </summary>
-        [SerializeField] FX fx;
+        [SerializeField] FX muzzleFx;
+        [SerializeField] FX hitFx;
 
         public override List<Unit> GetTarget(PartyUnit unit)
         {
@@ -80,6 +81,12 @@ namespace CookApps.Game
             var projectile = poolSystem.Spawn(_prefab).GetComponent<Projectile>();
             projectile.transform.SetPositionAndRotation(spawnPoint + _offset, Quaternion.identity);
             projectile.Initialize(this, unit, enemy);
+
+            
+            if (muzzleFx != null)
+            {
+                muzzleFx.Play(enemy, unit);
+            }
         }
 
         public void SkillImpact(Unit unit, Unit enemy)
@@ -88,9 +95,9 @@ namespace CookApps.Game
 
             enemy.healthAbility.Damaged(damage, unit.id);
 
-            if (fx != null)
+            if (hitFx != null)
             {
-                fx.Play(enemy, unit);
+                hitFx.Play(enemy, unit);
             }
         }
 

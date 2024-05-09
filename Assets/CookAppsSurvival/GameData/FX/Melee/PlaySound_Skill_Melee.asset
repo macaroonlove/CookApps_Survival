@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04972f5441f814248ab121569856e42b, type: 3}
   m_Name: PlaySound_Skill_Melee
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 51051e618e2d7f54cab8d9ac435de950, type: 3}

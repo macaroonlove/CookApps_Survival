@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04972f5441f814248ab121569856e42b, type: 3}
-  m_Name: PlaySound_Skill_Archer
+  m_Name: PlaySound_Archer_Muzzle
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 3d4474487d8a90044b18af10553cd822, type: 3}

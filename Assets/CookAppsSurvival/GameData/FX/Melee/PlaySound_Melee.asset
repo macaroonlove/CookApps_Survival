@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04972f5441f814248ab121569856e42b, type: 3}
-  m_Name: PlaySound_Healing
+  m_Name: PlaySound_Melee
   m_EditorClassIdentifier: 
-  _clip: {fileID: 8300000, guid: f1b53cf95c971aa40b077c6c405e539b, type: 3}
+  _clip: {fileID: 8300000, guid: 81ad74eebcb23124bbe70ff554aef6c6, type: 3}

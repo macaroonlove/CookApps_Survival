@@ -20,4 +20,5 @@ MonoBehaviour:
   _prefab: {fileID: 7749559472312188654, guid: 3a96e6cbb355b9b4aaf72a4ec9985ebb, type: 3}
   isUseProjectileSpwanPoint: 0
   _offset: {x: 0, y: 1, z: 0}
-  fx: {fileID: 11400000, guid: c04641d26a807ce44b3ba9a0db02b7e9, type: 2}
+  muzzleFx: {fileID: 11400000, guid: c308fdfad70e54c4c813d33d1acbfbee, type: 2}
+  hitFx: {fileID: 0}

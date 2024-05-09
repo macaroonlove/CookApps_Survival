@@ -197,6 +197,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8847540027092538056, guid: 36bddbb01219b91438d91f10ed6e5cb0,
         type: 3}
+      propertyPath: fx
+      value: 
+      objectReference: {fileID: 11400000, guid: 29c7d444f934b344a8ac3a7aa3221a44,
+        type: 2}
+    - target: {fileID: -8847540027092538056, guid: 36bddbb01219b91438d91f10ed6e5cb0,
+        type: 3}
+      propertyPath: muzzleFx
+      value: 
+      objectReference: {fileID: 11400000, guid: ac43b501690d72a4997a4d227171821f,
+        type: 2}
+    - target: {fileID: -8847540027092538056, guid: 36bddbb01219b91438d91f10ed6e5cb0,
+        type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 7749559472312188654, guid: 2a54d7a786dde3c4fbebe3d11a4f09e3,

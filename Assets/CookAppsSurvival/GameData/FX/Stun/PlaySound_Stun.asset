@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04972f5441f814248ab121569856e42b, type: 3}
   m_Name: PlaySound_Stun
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 83b39262e769cfb4180cbe5aebd67e37, type: 3}

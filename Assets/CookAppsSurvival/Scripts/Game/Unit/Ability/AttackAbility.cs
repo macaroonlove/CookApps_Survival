@@ -15,6 +15,9 @@ namespace CookApps.Game
         [SerializeField, ReadOnly] protected float cooldownTime = 0;
         [SerializeField, ReadOnly] private float finalCooldownTime = 0;
 
+        [SerializeField] FX muzzleFx;
+        [SerializeField] FX fx;
+
         protected Unit _attackTarget;
         protected PoolSystem _poolSystem;
         protected int _pureATK;
@@ -114,6 +117,11 @@ namespace CookApps.Game
                 var projectile = _poolSystem.Spawn(projectilePrefab).GetComponent<Projectile>();
                 projectile.transform.SetPositionAndRotation(projectileSpawnPoint.position, Quaternion.identity);
                 projectile.Initialize(this, attackTarget);
+
+                if (muzzleFx != null)
+                {
+                    muzzleFx.Play(attackTarget, unit);
+                }
             }
             // 즉시 공격일 경우
             else
@@ -126,6 +134,11 @@ namespace CookApps.Game
         {
             // 타겟에게 데미지 주기
             attackTarget.healthAbility.Damaged(finalATK, unit.id);
+
+            if (fx != null)
+            {
+                fx.Play(attackTarget, unit);
+            }
         }
 
         protected virtual bool IsInRange(Unit attackTarget)

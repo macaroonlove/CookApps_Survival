@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Glod
   m_EditorClassIdentifier: 
   _value:
-    currentCryptoKey: 1402427970
-    hiddenValue: 1402427970
+    currentCryptoKey: 1742111143
+    hiddenValue: 1742111143
     fakeValue: 0
     fakeValueActive: 1
     inited: 1
