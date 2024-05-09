@@ -78,8 +78,6 @@
 >사운드 설정 및 게임 종료를 할 수 있습니다.   
 >![Setting](https://github.com/macaroonlove/CookApps_PxP/assets/87137181/dd2388d4-725d-4c30-9166-ec85308002bb)
 
-## 구조 (BattleManager, Unit)
-
 
 ## ※ 데이터 관리(ScriptableObject)   
 >아군과 적군의 데이터   
@@ -100,9 +98,35 @@
 >스테이지 관리   
 > ![image](https://github.com/macaroonlove/CookApps_PxP/assets/87137181/5a7001c6-5251-41bb-aecc-407da4b1439b)   
 ><br/>
->FX관리: 파티클, 사운드 실행 템플릿   
->![image](https://github.com/macaroonlove/CookApps_PxP/assets/87137181/357d86bc-f2b5-44b9-aeb3-24a8bfc8725c)   
+>FX 관리: 파티클, 사운드 실행 템플릿   
+>![image](https://github.com/macaroonlove/CookApps_PxP/assets/87137181/f03dd87e-be6d-420c-a693-4a971c1f99b4)   
+><br/>   
+>골드 관리: AntiCheatToolkit과 SO Architecture를 활용하여 메모리 변조된 ScriptableObject 구현   
+>![image](https://github.com/macaroonlove/CookApps_PxP/assets/87137181/caca92f5-e2c8-4934-8148-72321bd0bda0)   
 
 
-
-
+## ※ 사용한 에셋 및 리소스   
+>### 메모리 변조 및 ScriptableObject 관리   
+>>ScriptableObject-Architecture   
+>>Anti-Cheat Toolkit 2023   
+>### 이미지(Sprite)   
+>>Pixel Monsters Animated Pack #2(몬스터)   
+>>SunnyLand Expansion Pack Trees(나무)   
+>### 머티리얼   
+>>350+ Realistic Nature Textures Megapack - Forest, Desert, Arctic & More   
+>>Yughues Free Ground Materials   
+>### VFX   
+>>Particle Pack   
+>>Status Effects FREE   
+>### UI   
+>>DOTween (HOTween v2)   
+>### 프로젝트 관리   
+>>vFolders 2   
+>>vInspector   
+>>vHierarchy   
+>>vTabs   
+>### 사운드
+>>zapsplat
+>>Suno AI
+>### 이미지(Sprite) 및 아이콘
+>>Leonardo.Ai
