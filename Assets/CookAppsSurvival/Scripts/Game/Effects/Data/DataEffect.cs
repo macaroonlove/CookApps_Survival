@@ -9,5 +9,17 @@ namespace CookApps.Game
         [SerializeField] private T _value;
 
         public T value => _value;
+
+#if UNITY_EDITOR
+        public override void Draw(Rect rect)
+        {
+
+        }
+#endif
+
+        public override string GetLabel()
+        {
+            return "";
+        }
     }
 }

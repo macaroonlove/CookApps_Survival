@@ -1,6 +1,7 @@
 using FrameWork.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace CookApps.Game
@@ -16,7 +17,6 @@ namespace CookApps.Game
         /// <summary>
         /// 범위 지정
         /// </summary>
-        [EnumCondition("healTarget", (int)EAgentTarget.OneAgentInRange, (int)EAgentTarget.AllAgentInRange, (int)EAgentTarget.AllAgentInRangeExceptMe)]
         [SerializeField] private float radius;
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace CookApps.Game
         [SerializeField] private EPercentageType healType;
 
         /// <summary>
-        /// 피해량
+        /// 회복량
         /// </summary>
         [SerializeField] private float damageAmountPer;
 
@@ -68,5 +68,56 @@ namespace CookApps.Game
 
             return amount;
         }
+
+        public override string GetLabel()
+        {
+            return "즉시 회복 스킬";
+        }
+
+#if UNITY_EDITOR
+        public override void Draw(Rect rect)
+        {
+            var labelRect = new Rect(rect.x, rect.y, 140, rect.height);
+            var valueRect = new Rect(rect.x + 140, rect.y, rect.width - 140, rect.height);
+
+            GUI.Label(labelRect, "회복 대상");
+            healTarget = (EAgentTarget)EditorGUI.EnumPopup(valueRect, healTarget);
+
+            if (healTarget != EAgentTarget.Myself)
+            {
+                labelRect.y += 20;
+                valueRect.y += 20;
+                GUI.Label(labelRect, "범위");
+                radius = EditorGUI.FloatField(valueRect, radius);
+            }
+
+            labelRect.y += 20;
+            valueRect.y += 20;
+            GUI.Label(labelRect, "데미지 비례 타입");
+            healType = (EPercentageType)EditorGUI.EnumPopup(valueRect, healType);
+
+            labelRect.y += 20;
+            valueRect.y += 20;
+            GUI.Label(labelRect, "회복량");
+            damageAmountPer = EditorGUI.FloatField(valueRect, damageAmountPer);
+
+            labelRect.y += 20;
+            valueRect.y += 20;
+            GUI.Label(labelRect, "FX");
+            fx = (FX)EditorGUI.ObjectField(valueRect, fx, typeof(FX), false);
+        }
+
+        public override int GetNumRows()
+        {
+            int rowNum = 4;
+
+            if (healTarget != EAgentTarget.Myself)
+            {
+                rowNum += 1;
+            }
+
+            return rowNum;
+        }
+#endif
     }
 }

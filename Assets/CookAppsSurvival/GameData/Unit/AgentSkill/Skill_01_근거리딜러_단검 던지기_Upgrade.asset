@@ -18,4 +18,26 @@ MonoBehaviour:
   cooldownTime: 3
   face: {fileID: 21300000, guid: 9eed2398c1fa63c4c8eca299fa9980ac, type: 3}
   effects:
-  - {fileID: 11400000, guid: 82eb8c2d1fcc1f64181898094d2163d3, type: 2}
+  - {fileID: 8211266265096827603}
+--- !u!114 &8211266265096827603
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30dc7cfb41d7b44884b670ac2ccd7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTarget: 2
+  radius: 4
+  numberOfEnemies: 0
+  damageType: 0
+  damageAmountPer: 1
+  _prefab: {fileID: 7749559472312188654, guid: 3a96e6cbb355b9b4aaf72a4ec9985ebb, type: 3}
+  isUseProjectileSpwanPoint: 0
+  _offset: {x: 0, y: 1, z: 0}
+  muzzleFx: {fileID: 11400000, guid: c308fdfad70e54c4c813d33d1acbfbee, type: 2}
+  hitFx: {fileID: 0}
