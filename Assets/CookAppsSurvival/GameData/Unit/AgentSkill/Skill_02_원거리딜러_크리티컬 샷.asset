@@ -17,7 +17,7 @@ MonoBehaviour:
   numberOfEnemies: 0
   damageType: 0
   damageAmountPer: 2.5
-  _prefab: {fileID: 7749559472312188654, guid: 2a54d7a786dde3c4fbebe3d11a4f09e3, type: 3}
+  _prefab: {fileID: 7749559472312188654, guid: 56b4290ad114b6d409131f1288341c68, type: 3}
   isUseProjectileSpwanPoint: 1
   _offset: {x: 0, y: 0, z: 0}
   muzzleFx: {fileID: 11400000, guid: ac43b501690d72a4997a4d227171821f, type: 2}

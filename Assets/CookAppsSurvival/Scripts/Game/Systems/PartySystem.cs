@@ -144,9 +144,9 @@ namespace CookApps.Game
                 {
                     var diff = member.transform.position - unitPos;
 
-                    var distance = diff.magnitude;
+                    var distance = diff.sqrMagnitude;
 
-                    if (distance <= radius)
+                    if (distance <= radius * radius)
                     {
                         if (members.Contains(member) == false)
                         {

@@ -37,9 +37,9 @@ namespace CookApps.Game
 
         public void Deinitialize()
         {
-            foreach (var item in _subSystems.Values)
+            foreach (var system in _subSystems.Values)
             {
-                item.Deinitialize();
+                system.Deinitialize();
             }
         }
 
